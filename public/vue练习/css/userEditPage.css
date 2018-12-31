@@ -1,0 +1,42 @@
+*{
+	margin:0;
+	padding:0;
+}
+#uid,#uname{
+	border:none;
+	outline:none;
+}
+a:link{
+	color:black;
+}
+a:visited{
+	color:black;
+}
+a:hover{
+	color:black;
+}
+#head{
+	width:304px;
+	height:70px;
+	line-height:70px;
+	margin:0px auto;
+}
+#head>div{
+	float:left;
+	font-size:50px
+}
+#updatediv{
+	width:400px;
+	margin:0px auto;
+	border:1px solid black;
+}
+#updatediv	.inputArea{
+	width:200px;
+	height:20px;
+}
+.reqtitle {
+	float:left;
+	width:100px;
+	height:20px;
+	text-align:right;
+}

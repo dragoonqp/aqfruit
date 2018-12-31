@@ -1,0 +1,224 @@
+<!doctype html >
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/admin.css">
+ </head>
+ <body onload='changeCount()'>
+ 	<aside>
+	</aside>
+ 	<section id='main'>
+		每页显示数量:<select name="user_ex_count" id="user_ex_count" onchange='changeCount()'>
+			<option value="10" selected>10</option>
+			<option value="20">20</option>
+			<option value="50">50</option>
+			<option value="100">100</option>
+		</select>
+		<table>
+			<thead>
+				<tr>
+					<th>用户编号</th>
+					<th>用户账号</th>
+					<th>邮箱</th>
+					<th>联系电话</th>
+					<th>真实姓名</th>
+					<th>性别</th>
+					<th>头像</th>
+					<th>是否在线</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id='userTable'>
+
+			</tbody>
+		</table>
+		<div class='row'>
+			<div id='pageselectordiv'>
+			</div>
+		</div>
+		
+	</section>
+ 	
+	<script>
+		"use strict"
+		//定义函数将激活的li前后各2个及自身类名添加.show
+		function showact(){
+			var liList=document.getElementsByTagName("li");
+			if(liList){
+				for(var i=0;i<liList.length;i++){
+					liList[i].classList.remove('show');
+				}
+			}
+			if(liList.length>=7){
+				//var lilist=document.getElementsByTagName('li');
+				var actLi=document.getElementsByClassName("active")[0];
+				var actId=Number(actLi.innerHTML);
+				if(actId>=3&&actId<=liList.length-4){
+					for(var j=actId-2;j<=actId+2;j++){
+						document.getElementById('l'+j).classList.add('show');
+					}
+				}else if(actId==2){
+					for(var j=actId-1;j<=actId+2;j++){
+						document.getElementById('l'+j).classList.add('show');
+					}
+				}else if(actId==liList.length-2){
+					for(var j=actId-2;j<=actId;j++){
+						document.getElementById('l'+j).classList.add('show');
+					}
+				}else if(actId==liList.length-3){
+					for(var j=actId-2;j<=actId+1;j++){
+						document.getElementById('l'+j).classList.add('show');
+					}
+				}else if(actId==1){
+					//console.log(11);
+					for(var j=actId;j<=actId+2;j++){
+						document.getElementById('l'+j).classList.add('show');
+					}
+				}
+				}else{
+					for(var k=1;k<liList.length-1;k++){
+						liList[k].classList.add('show');
+					}
+				}
+		}
+		//定义act方法改变激活的li的样式
+		function act(num1){
+			//获取插入的ul及li，为li添加和删除类名来改变样式。
+			var cli = document.getElementById('l'+num1);
+			var div = document.getElementById('pageselectordiv');
+			//console.log(div);
+			var ul = div.getElementsByTagName('ul')[0];
+			var li = ul.getElementsByTagName('li');
+			for(var i=0;i<li.length;i++){
+				li[i].classList.remove('active');
+			}
+
+			cli.classList.add('active');
+		}
+
+		//定义改变页码li时的函数
+		function changePage(num){
+            var pageCount=user_ex_count.value;
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange=function (){
+				if(xhr.readyState==4 && xhr.status==200){
+					var result = JSON.parse(xhr.responseText);
+					//遍历result对象数组里的元素，拼接到待插入的节点里。
+					var str = '';
+					for(var i=0;i<result.length-1;i++){
+						str+='<tr><td>'+result[i].uid+'</td><td>'+result[i].uname+'</td><td>'+result[i].email+'</td><td>'+result[i].phone+'</td><td>'+result[i].userName+'</td><td>'+result[i].gender+'</td><td>'+result[i].avatar+'</td><td>'+result[i].isOnline+'</td><td><a href="javascript:detail('+result[i].uid+')">详情</a>&nbsp;&nbsp;<a href="user_edit.html?uid='+result[i].uid+'">编辑</a>&nbsp;&nbsp;<a href="javascript:del('+result[i].uid+')">删除</a></td><tr>'
+					}
+					userTable.innerHTML=str;
+				}
+			}
+			xhr.open('get','/user_admin/user_admin_list?count='+pageCount+'&pageNo='+num,true);
+			xhr.send(null);
+			//激活编号为num的li。
+			act(num);
+			//将激活的li前后各2个及自身类名添加.show
+			showact()
+			//改变active的li时，判断是否是最后和最前面的li，如果是则让按钮禁用
+			var div=document.getElementById('pageselectordiv');
+			var ul=div.getElementsByTagName("ul")[0];
+			var li=document.getElementsByTagName("li");
+			if(document.getElementsByClassName("disabled")[0]){
+				document.getElementsByClassName("disabled")[0].classList.remove('disabled');
+			}
+
+			var currentId=Number(document.getElementsByClassName("active")[0].innerHTML);
+			if(currentId==1){
+				prev.classList.add('disabled')
+			}
+			if(currentId==Number(li[li.length-2].innerHTML)){
+				next.classList.add('disabled')
+			}
+		}
+
+		//定义点击上一页和下一页的改变有类名active的li,并执行changePage函数的函数。
+		function movepage(n){
+			var div=document.getElementById('pageselectordiv');
+			var ul=div.getElementsByTagName("ul")[0];
+			var li=document.getElementsByTagName("li")
+			if(document.getElementsByClassName("disabled")[0]){
+				document.getElementsByClassName("disabled")[0].classList.remove('disabled');
+			}
+
+			var currentId=Number(document.getElementsByClassName("active")[0].innerHTML);
+			if(currentId==1){
+				prev.classList.add('disabled')
+			}
+			if(currentId==Number(li[li.length-2].innerHTML)){
+				next.classList.add('disabled')
+			}
+			var newActiveLi=document.getElementById('l'+(currentId+n));
+			changePage(currentId+n);
+			document.getElementsByClassName("active")[0].classList.remove('active');
+			newActiveLi.classList.add('active');
+		}
+		//定义根据页面数量插入对应数量的列表元素。
+		function insertLi(num){
+			pageselectordiv.innerHTML='';
+			function fun(num){
+				var ul = document.createElement('ul');
+				for(var i=0;i<num;i++){
+					ul.innerHTML+='<li id="l'+(i+1)+'" onclick=changePage('+(i+1)+')>'+(i+1)+'</li>';
+				}
+				ul.innerHTML='<li id="prev" class="prev" onclick="movepage(-1)">上一页</li>'+ul.innerHTML+'<li id="next" class="next" onclick="movepage(1)">下一页</li>'
+				pageselectordiv.appendChild(ul);
+			}
+			fun(num);
+		}
+
+		//定义函数改变每页显示的数量
+		function changeCount(){
+			var pageNo=1;
+            var pageCt;
+			var pageCount=user_ex_count.value;
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange=function (){
+				if(xhr.readyState==4 && xhr.status==200){
+					var result = JSON.parse(xhr.responseText);
+					var str = '';
+					for(var i=0;i<result.length-1;i++){
+						str+='<tr id="d'+result[i].uid+'"><td>' +result[i].uid+'</td><td>'+result[i].uname+'</td><td>'+result[i].email+'</td><td>'+result[i].phone+'</td><td>'+result[i].userName+'</td><td>'+(result[i].gender==1?"男":"女")+'</td><td>'+result[i].avatar+'</td><td>'+(result[i].isOnline==1?"是":"否")+'</td><td><a href="javascript:detail('+result[i].uid+')">详情</a>&nbsp&nbsp<a href="user_edit.html?uid='+result[i].uid+'" target="_blank">编辑</a>&nbsp&nbsp<a href="javascript:del('+result[i].uid+')">删除</a></td><tr>'
+					}
+					userTable.innerHTML=str;
+					pageCt=Math.ceil(result[result.length-1].tCount/user_ex_count.value);
+					insertLi(pageCt);
+					prev.classList.add('disabled');
+					act(1);
+					showact();
+				}
+			}
+			xhr.open('get','/user_admin/user_admin_list?count='+user_ex_count.value+'&pageNo='+pageNo,true);
+			//console.log(pageNo);
+			xhr.send(null);
+		}
+		//删除信息路由
+		function del(uid){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					var result=JSON.parse(xhr.responseText);
+					if(result.code==201){
+						alert(result.msg);
+					}
+				}
+			}
+			xhr.open('post','/user_admin/userDel',true);
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			var formdata='uid='+uid;
+			xhr.send(formdata);
+			//删除页面上的节点。
+			var dtr = document.getElementById('d'+uid);
+			dtr.parentNode.removeChild(dtr);
+		}
+	</script>
+	<script src="js/jquery-1.11.3.js"></script>
+ </body>
+</html>

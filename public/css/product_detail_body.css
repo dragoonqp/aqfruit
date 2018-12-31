@@ -1,0 +1,521 @@
+/*
+* @Author: dragoonqp
+* @Date:   2018-11-25 10:04:54
+* @Last Modified by:   dragoonqp
+* @Last Modified time: 2018-12-01 13:23:34
+*/
+*{
+	padding: 0;
+	margin:0;
+}
+.productdetail{
+	display: flex;
+	justify-content: flex-start;
+	flex-wrap: nowrap;
+	z-index: 1;
+}
+section{
+	padding-top: 20px;
+}
+
+/*侧边栏*/
+.asidelink{
+	width:212px;
+	height:1400px;
+	background:#f6f6f6;
+
+}
+.asidelink .head{
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	width: 100%;
+	height: 47px;
+	box-sizing: border-box;
+	padding-left: 10px;
+	background:#4ab344;
+	font:18px 微软雅黑;
+	color: #ffffff;
+}
+.asidelink .linkcontainer{
+	width:100%;
+	padding:15px 10px;
+	box-sizing: border-box;
+}
+.linklist li{
+	margin:10px auto;
+}
+.linklist li a{
+	width:190px;
+	height:160px;
+	border: 1px solid gray;
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-start;
+}
+.linklist li .likepic{
+	margin: 5px;
+	width: 90px;
+	height: 90px;
+	transform:rotate(0deg);
+	transition:all 0.5s;
+}
+.linklist li:hover .likepic{
+	transform:rotate(360deg);
+}
+.linklist li .likepic img{
+	width: 100%;
+	border-radius:45px;
+}
+.linklist li div p{
+	margin: 5px auto 5px;
+	font: 14px 微软雅黑;
+}
+.linklist li:hover a{
+	border:1px solid red;
+}
+.linklist li:hover p{
+	color:#1b872e;
+}
+
+
+/*内容区*/
+.body{
+	box-sizing: border-box;
+	padding-left:18px;
+	width: 78%;
+}
+.body>p:first-child{
+	display: flex;
+	justify-content: center;
+	align-items: center;	
+	height: 47px;
+	font:20px 微软雅黑;
+}
+.body>p:first-child i,.body>p:first-child span{
+	font:20px 微软雅黑;
+}
+
+.body .buyarea{
+	display: flex;
+	justify-content: flex-start;
+}
+.buyarea .picplace{
+	position: relative;
+	width: 353px;
+	height:353px;
+}
+.buyarea .picholder{
+	box-sizing: border-box;
+	border:1px solid gray;
+	width: 353px;
+	height:353px;
+	z-index: 1;
+}
+.buyarea .supermask{
+	position: absolute;
+	top:0px;
+	left:0px;
+	box-sizing: border-box;
+	border:1px solid gray;
+	width: 353px;
+	height:353px;
+	z-index: 3;
+}
+.buyarea .smpic{
+	width: 100%;
+	margin-top: 10px;
+	display: flex;
+	justify-content: space-between;
+}
+.buyarea .smpic a{
+	width: 35px;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	border:1px solid #1b872e ;
+}
+.icon-rightbutton,.icon-leftbutton{
+	font-size: 30px !important;
+}
+.icon-rightbutton:hover,.icon-leftbutton:hover{
+	color:#1b872e;
+}
+.buyarea .smpicholder{
+	position: relative;
+	width: 280px;
+	height:70px;
+	overflow: hidden;
+}
+.buyarea .smpicholder ul{
+	position:absolute;
+	transition:all 0.3s linear;
+}
+.buyarea .smpicholder>ul>li{
+	float:left;
+}
+.buyarea .smpicholder>ul>li>img{
+	box-sizing: border-box;
+	width: 70px;
+}
+.buyarea .smpicholder>ul>li>img:hover{
+	border:2px solid green;
+}
+.buyarea .smpic .disable{
+	pointer-events: none;
+	color:#aaaaaa;
+}
+.buyarea .picholder img{
+	width: 100%;
+	z-index: 1;
+}
+.viewport{
+	position:absolute;
+	width:176px;
+	height:176px;
+	background: rgba(250,250,250,0.5);
+	z-index: 2;
+	display: none;
+}
+
+.bigpicholder{
+	position:absolute;
+	top:47px;
+	left:583px;
+	width:400px;
+	height:400px;
+	display:none;
+	overflow:hidden;
+}
+.bigpicholder img{
+	width:800px;
+	height:800px;
+	position:absolute;
+}
+
+.buyarea .price{
+	margin-left: 10px;
+}
+.buyarea .price p{
+	height:30px;
+}
+.buyarea .buycount{
+	display: flex;
+	align-items: center;
+	height:50px;
+}
+.pricetitle{
+	display: inline-block;
+	width:90px;
+	text-align: right;
+}
+.countcontrol>div{
+	width: 30px;
+	height: 30px;
+	float:left;
+	margin-left:5px;
+	display: flex;
+	flex-direction: column;
+	justify-content:space-between;
+}
+.countcontrol input{
+	float:left;
+	width:30px;
+	height:30px;
+	text-align: center;
+	box-sizing: border-box;
+}
+.add,.reduce{
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width:12px;
+	height:12px;
+	border: 1px solid gray;
+	background: #eeeeee;
+}
+.disable .reduceicon{
+	border-top:5px solid gray;
+	border-right:5px solid transparent;
+	border-bottom:5px solid transparent;
+	border-left:5px solid transparent;
+}
+.addicon{
+	margin-top: -4px;
+	width: 0px;
+	height: 0px;
+	border-top:5px solid transparent;
+	border-right:5px solid transparent;
+	border-bottom:5px solid black;
+	border-left:5px solid transparent;
+}
+.reduceicon{
+	margin-bottom: -4px;
+	width: 0px;
+	height: 0px;
+	border-top:5px solid black;
+	border-right:5px solid transparent;
+	border-bottom:5px solid transparent;
+	border-left:5px solid transparent;
+}
+
+
+.buybtn{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+.buybtn a{
+	width:140px;
+	height: 39px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font: 20px 微软雅黑;
+	box-sizing: border-box;
+}
+.buybtn .addtocar{
+	margin-left: 20px;
+	border:1px solid #019f1d;
+	color:#019f1d;
+}
+.buybtn .buynow{
+	background:#019f1d;
+	color: white;
+	margin-left: 15px;
+}
+.service{
+	margin-top:10px;
+}
+.collection{
+	margin:10px 0px;
+}
+.collection b{
+	margin:0 5px 0 15px;
+	font-size: 14px;
+	font-weight: normal;
+}
+.collection a{
+	font: 18px 微软雅黑;
+}
+.collection a:hover{
+	color:#019f1d;
+}
+.collection a i{
+	margin: 0 5px;
+	font:18px 微软雅黑;
+}
+.changeP{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.changeP a{
+	width:60px;
+	height:20px;
+	line-height: 20px;
+	text-align: center;
+	margin:10px 10px;
+	border:1px solid black;
+}
+
+/*产品参数区*/
+.productspec{
+	position: relative;
+}
+.productspec .specdiv{
+	position: relative;
+	background: red;
+}
+.productspec>a{
+	display: inline-block;
+	position: relative;
+	width:117px;
+	height:41px;
+	border:1px solid gray;
+	line-height: 41px;
+	text-align: center;
+	color:#666666;
+}
+.productspec a:hover{
+	cursor:pointer;
+}
+.productspec>a.active{
+	border:1px solid #019f1d;
+	border-bottom: 1px solid white;
+	position: relative;
+	height: 41px;
+	color:#019f1d;
+	z-index: 10;
+}
+.productspec .specdiv div.actived{
+	display: block;
+}
+.productspec .specdiv>div{
+	position:absolute;
+	top:-1px;
+	display: none;
+	width: 100%;
+	height:500px;
+	z-index: 1;
+	border-top: 1px solid #019f1d;
+}
+.productspec .specdiv>div.spec table{
+	width:90%;
+	margin-top:10px;
+	border: 1px solid gray;
+	border-collapse: collapse;
+	font:16px 微软雅黑;
+
+}
+.productspec .specdiv>div table td{
+	border: 1px solid gray;
+	padding: 5px 0px;
+	valign:middle;
+}
+.productspec .specdiv>div table td.value{
+	width:40%;
+}
+
+/*评论区*/
+.commentsummary{
+	width: 100%;
+	height:150px;
+	border-bottom: 1px solid gray;
+}
+.commentsummary .left,.commentsummary .right{
+	display:flex;
+	justify-content: center;
+	align-items:center;
+	height:100px;
+	margin: 25px auto;
+	box-sizing: border-box;
+}
+.commentsummary .left{
+	width: 40%;
+}
+.commentsummary .right{
+	width: 60%;
+}
+.commentsummary div+div{
+	border-left:1px solid gray;
+}
+
+.commentlist>li{
+	border-bottom:1px solid gray;
+	height:100px;
+	display: flex;
+	justify-content: space-between;
+}
+.commentlist>li .cmtmain{
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+}
+.commentlist>li .score{
+	width: 20%;
+	display: flex;
+	align-items: center;
+}
+.commentlist>li .score i{
+	color:orange;
+}
+.commentlist>li .cmtuser{
+	width:20%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.commentlist>li .cmtuser .avatar{
+	width: 60px;
+	height:60px;
+	border-radius: 50%;
+	background: yellow;
+	overflow: hidden;
+}
+.commentlist>li .cmtuser .avatar img{
+	width: 100%;
+	height: 100%;
+}
+.commentlist>li>div{
+	margin: 10px 0;
+}
+.commentpage{
+	display: block;
+}
+.commentpage div{
+	display: block;
+}
+.commentpage div>ul{
+	display: flex;
+	justify-content: flex-start;
+}
+.icon-star{
+	color:gray;
+}
+.submitcomment div:not(.submitbtn){
+	margin:10px 0;
+}
+.submitcomment span{
+	margin:0 5px;
+}
+.submitcomment input{
+	height:20px;
+}
+.submitcomment input:last-of-type{
+	width:70px;
+}
+.submitcomment .star i {
+	font-size: 20px;
+}
+.submitcomment textarea{
+	vertical-align: middle;
+}
+.submitbtn{
+	margin: 30px auto;
+	width:80px;
+	height:30px;
+	border:1px solid gray;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*交易记录去*/
+#dealcount{
+	width:100%;
+}
+#dealcount table{
+	width: 100%;
+	border-collapse: collapse;
+	border:none;
+}
+#dealcount table thead tr{
+	height:30px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	background:#f3f3f3;
+}
+#dealcount table thead tr th{
+
+}
+#dealcount table tbody tr{
+	height:60px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	border: none;
+	border-bottom:1px solid #f3f3f3;
+}
+#dealcount table tbody tr td{
+	display: flex;
+	justify-content: space-around;
+	border: none;
+}

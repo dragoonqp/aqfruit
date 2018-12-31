@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<!--<link rel="stylesheet" href="css/common.css" type='text/css'>-->
+		<link rel="stylesheet" type="text/css" href="css/iconcss/iconfont.css">
+		<link rel="stylesheet" href="css/main.css" type='text/css'>
+
+	</head>
+	<body onload='getlist()' onscroll="scroll()" >
+		<header id="mainheader">
+			<!-- 头部登录区 -->
+			<div class='title'>
+				<div class='content'>
+					<span>您好，欢迎来到阿七果园子！</span>
+					<ul class='right mycenter'>
+						<li><a href='user_login.html' title='登录账户'>[登录]</a>&nbsp;</li>
+						<li><a href='user_register.html' title='注册新用户'>[注册有惊喜]</a></li>
+						<li><a href='' title='个人中心'>我的果园</a></li>
+						<li><a href='' title='移动端'>手机果园</a></li>
+						<li>400-720-0770</li>
+					</ul>
+				</div>
+			</div>
+			<div id='searchbardiv'>
+				<div class='content'>
+					<!-- logo图片 -->
+					<h3 class='logo'><a href="index.html" title='阿七果园'></a></h3>
+					<h4 class='logo'><a href="index.html" title='阿七果园'></a></h4>
+					<!-- 配送 -->
+					<div id="delivery">
+						
+					</div>
+					<!-- 搜索框及搜索热点 -->
+					<div id="searchbar">
+						<span>搜索热点:</span>
+						<ul id='hot'>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+						<div id="searchBtn">搜索</div>
+						<input type="text" id='search'>
+					</div>
+					<div class="clearfix"></div>
+				</div>
+			</div>
+		</header>
+		<nav id="mainnav">
+			<div class='content'>
+				<ul class="nav">
+					<li id='allproducts' ><a href="products_list.html?classname=all">全部商品</a>
+						<ul class='subnav'>
+							<li><a href="products_list.html?classname=all">所有鲜果</a></li>
+							<li><a href="products_list.html?classname=10">进口鲜果</a></li>
+							<li><a href="products_list.html?classname=20">国产鲜果</a></li>
+							<!-- <li><a href="products_list.html?classname=rest">休闲食品</a></li> -->
+							<li><a href="products_list.html?classname=30">礼盒花篮</a></li>
+							<!-- <li><a href="products_list.html?classname=rest">消费卡券</a></li> -->
+							<li><a href="products_list.html?classname=40">宝贝水果</a></li>
+							<li><a href="products_list.html?classname=50">孕妇水果</a></li>
+							<li><a href="products_list.html?classname=60">老人水果</a></li>
+							<li><a href="products_list.html?classname=70">其他</a></li>
+						</ul>
+					</li>
+					<li><a href="index.html">首页</a></li>
+					<li><a href="products_list.html?classname=10">进口鲜果</a></li>
+					<li><a href="products_list.html?classname=20">国产鲜果</a></li>
+					<li><a href="">在线充值</a></li>
+					<li><a href="">团购配送</a></li>
+					<li><a href="">其他</a></li>
+				</ul>
+				<div class='shopcar' id="shopcar">
+					<a href=""><i class="iconfont icon-shoppingcart"></i>购物车</a>
+					<div class="shopcarlist">
+						<h5><span>购物车</span><a class="clearshopcar" href="">清空</a></h5>
+						<div class="headertitle">
+							<span class="pic header">图片</span>
+							<span class="title header">产品</span>
+							<span class="quantity header">数量</span>
+							<span class="unitprice header">单价</span>
+							<span class="totalprice header">小计</span>
+							<span class="delete header">操作</span>
+						</div>
+						<ul>
+							<li>
+								<div class="pic"><img src="image/fruit/fruit_19.jpg" alt="" ></div>
+								<span class="title">进口苹果</span>
+								<div class="quantity">
+									<input type="text" class="shopcarbuyQTY" value="1">
+									<div class="shopcarbuyQTYcontrol">
+										<a href="javascript:;" class="shopcarAdd QTYcontrol">+</a>
+										<a href="javascript:;" class="shopcarreduce QTYcontrol">-</a>
+									</div>
+								</div>
+								<span class="unitprice">200</span>
+								<span class="totalprice">200</span>
+								<a href="#" class="delete">删除</a>
+							</li>
+							<li>
+								<div class="pic"><img src="image/fruit/fruit_19.jpg" alt="" ></div>
+								<span class="title">进口苹果</span>
+								<div class="quantity">
+									<input type="text" class="shopcarbuyQTY" value="1">
+									<div class="shopcarbuyQTYcontrol">
+										<a href="javascript:;" class="shopcarAdd QTYcontrol">+</a>
+										<a href="javascript:;" class="shopcarreduce QTYcontrol">-</a>
+									</div>
+								</div>
+								<span class="unitprice">200</span>
+								<span class="totalprice">200</span>
+								<a href="#" class="delete">删除</a>
+							</li>
+							<li>
+								<div class="pic"><img src="image/fruit/fruit_19.jpg" alt="" ></div>
+								<span class="title">进口苹果</span>
+								<div class="quantity">
+									<input type="text" class="shopcarbuyQTY" value="1">
+									<div class="shopcarbuyQTYcontrol">
+										<a href="javascript:;" class="shopcarAdd QTYcontrol">+</a>
+										<a href="javascript:;" class="shopcarreduce QTYcontrol">-</a>
+									</div>
+								</div>
+								<span class="unitprice">200</span>
+								<span class="totalprice">200</span>
+								<a href="#" class="delete">删除</a>
+							</li>
+						</ul>
+						<div class="check">
+							<div  class="sumprice">总计:<span></span></div>
+							<a href="" class="checkbtn">去结算</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="backToTop"><i class="iconfont icon-backToTop"></i>回到顶部</div>
+		<section>
+			<!-- <div class='content'>
+			</div> -->
+			<div class='banner'>
+				<div class="content">
+					<ul class='carousel'>
+						<li class="show">
+							<a href="javascript:;"><img src="image/carousel1.jpg" alt=""></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="image/carousel2.jpg" alt=""></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="image/carousel3.jpg" alt=""></a>
+						</li>
+						<li>
+							<a href="javascript:;"><img src="image/carousel4.jpg" alt=""></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="pEx">
+				<div class="content">
+					<div class="normalp"></div>
+				</div>
+				<div id='d3'></div>
+			</div>
+			<div class='hr'>
+				<div class="content">
+					<div class="exName">
+						<span class="cn">优惠专区</span>
+						<span class="en">On sale time</span>
+					</div>
+					<div class="more"><a href="products_list.html?isOnsale=1">more>></a></div>
+				</div>
+			</div>
+			<div class='pEx'>
+				<div class='content'>
+					<div class="Onsalep">
+					</div>
+				</div>
+			</div>
+			<div class='hr'>
+				<div class="content">
+					<div class="exName">
+						<span class="cn">花样礼盒</span>
+						<span class="en">Figure box</span>
+					</div>
+					<div class="more"><a href="products_list.html?classname=30">more>></a></div>
+				</div>
+			</div>
+			<div class='pEx'>
+				<div class='content'>
+					<div class="figureBoxp">
+						<ul class="basket">
+							<li>
+								<img src="/image/basket/1_03.jpg" alt="">
+								<p class="title">事业有成水果礼篮</p>	  
+								<p class="price"><span class="nprice">￥278.00</span><del>￥398.00元</del></p>	  
+							</li>		  	   
+							<li>		  	   
+								<img src="/image/basket/1_05.jpg" alt="">
+								<p class="title">事业有成水果礼篮</p>	  
+								<p class="price"><span class="nprice">￥278.00</span><del>￥398.00元</del></p>	  
+							</li>		  	   
+							<li>		  	   
+								<img src="/image/basket/1_08.jpg" alt="">
+								<p class="title">事业有成水果礼篮</p>	  
+								<p class="price"><span class="nprice">￥278.00</span><del>￥398.00元</del></p>	  
+							</li>		  	   
+							<li>		  	   
+								<img src="/image/basket/1_09.jpg" alt="">
+								<p class="title">事业有成水果礼篮</p>	  
+								<p class="price"><span class="nprice">￥278.00</span><del>￥398.00元</del></p>	  
+							</li>		  	   
+							<li>		  	   
+								<img src="/image/basket/1_11.jpg" alt="">
+								<p class="title">事业有成水果礼篮</p>
+								<p class="price"><span class="nprice">￥278.00</span><del>￥398.00元</del></p>
+							</li>
+						</ul>
+					</div>
+					<div class="specialcarousel">
+						<ul class="special">
+							<li>
+								<a href="">
+									<img src="/image/basket/1_26.jpg" alt="">
+									<div>
+										<p class="title">越南百香果2斤装</p>
+										<p class="desc">源自百香果优质种植地——越南。 百香果其果肉可散发出香蕉……</p>
+										<p class="nprice">￥39.00</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="/image/basket/1_19.jpg" alt="">
+									<div>
+										<p class="title">越南百香果2斤装</p>
+										<p class="desc">源自百香果优质种植地——越南。 百香果其果肉可散发出香蕉……</p>
+										<p class="nprice">￥39.00</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="/image/basket/1_23.jpg" alt="">
+									<div>
+										<p class="title">越南百香果2斤装</p>
+										<p class="desc">源自百香果优质种植地——越南。 百香果其果肉可散发出香蕉……</p>
+										<p class="nprice">￥39.00</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="/image/basket/1_24.jpg" alt="">
+									<div>
+										<p class="title">越南百香果2斤装</p>
+										<p class="desc">源自百香果优质种植地——越南。 百香果其果肉可散发出香蕉……</p>
+										<p class="nprice">￥39.00</p>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="">
+									<img src="/image/basket/1_25.jpg" alt="">
+									<div>
+										<p class="title">越南百香果2斤装</p>
+										<p class="desc">源自百香果优质种植地——越南。 百香果其果肉可散发出香蕉……</p>
+										<p class="nprice">￥39.00</p>
+									</div>
+								</a>
+							</li>
+						</ul>
+
+						<a href="" class="spCar-control prev"><img src="image/icon/prev.png" alt=""></a>
+						<a href="" class="spCar-control next"><img src="image/icon/next.png" alt=""></a>
+					</div>
+
+				</div>
+			</div>
+
+			<div class='bottom'>
+				<ul>
+					<li>
+						<img src="../image/info/1_36.png" alt="">
+						<span>多仓发货</span>
+					</li>
+					<li>
+						<img src="../image/info/1_36-02.png" alt="">
+						<span>急速送达</span>
+					</li>
+					<li>
+						<img src="../image/info/1_36-03.png" alt="">
+						<span>顺丰快递</span>
+					</li>
+					<li>
+						<img src="../image/info/1_43.png" alt="">
+						<span>农残检测</span>
+					</li>
+					<li>
+						<img src="../image/info/1_45.png" alt="">
+						<span>产地直供</span>
+					</li>
+				</ul>
+			</div>	
+		</section>
+		<footer id="mainfooter">
+		</footer>
+		<script src="vue.js"></script>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script src="js/header.js"></script>
+		<script src="js/footer.js"></script>
+		<script src="nav2.js"></script>
+		<script src="js/index.js"></script>
+		<!--<script src="js/addtoshoppingcart.js" type="text/javascript"></script>-->
+	</body>
+</html>

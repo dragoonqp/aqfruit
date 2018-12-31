@@ -1,0 +1,50 @@
+.logindiv{
+	margin:8px auto;
+}
+.logindiv p{
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+}
+.logindiv p input:not(#rememberme){
+	width:250px;
+	height: 30px;
+	line-height: 24px;
+	font-size: 18px;
+	padding-left: 30px;	
+	box-sizing: border-box;
+	border-radius: 5px;
+}
+.accountId input{
+}
+.password input{
+}
+#rememberme{
+	vertical-align: middle;
+	width:20px;
+	height: 20px;
+	float: left;
+}
+#login{
+	margin: 10px auto;
+	width: 250px;
+	height:40px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color:white;
+	font:24px 微软雅黑;
+	background: #7cb500;
+	border-radius: 5px;
+
+}
+#register{
+	margin:10px auto;
+	width: 250px;
+	height: 20px;
+	text-align: right;
+}
+#register a+a:before{
+	content: "|";
+	margin:20px;
+}

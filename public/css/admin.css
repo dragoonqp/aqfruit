@@ -1,0 +1,121 @@
+*{
+	margin:0px;
+	padding:0px;
+}
+
+html {
+	height: 100%;
+}
+
+body{
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+aside{
+	height: 100%;
+	width:15%;
+	align-self: stretch;
+	background: yellow;
+}
+#main{
+	position:relative;
+	margin: 10px 1%;
+	width:83%;
+}
+#user_ex_count{
+	width:50px;
+	height: 30px;
+	font-size: 14px;
+}
+a{
+	text-decoration:none;
+}
+a:link{
+	color:black;
+}
+a:visited{
+	color:black;
+}
+a:hover{
+	color:black;
+}
+ul{
+	list-style:none;
+}
+#pageselector{
+	width:264px;
+	height:24px;
+	list-style:none;
+}
+ul li{
+	text-align:center;
+	width:24px;
+	height:24px;
+	line-height:24px;
+	border:1px solid #111;
+	box-sizing:border-box;
+	float:left;
+	outline:none;
+	display:none;
+	background:#fff;
+}
+#prev,#next{
+	display:inline-block;
+	width:72px;
+}
+#prev{
+	border-radius:4px 0 0 4px;
+}
+#next{
+	border-radius:0 4px 4px 0;
+}
+.row{
+	position:relative;
+	width:100%;
+	height:100px;
+}
+#pageselectordiv{
+	position:absolute;
+	right:30px;
+	top:50px;
+	width:264px;
+	height:24px;
+	overflow:hidden;
+}
+ul{
+	width:264px;
+	height:24px;
+}
+
+.active{
+	background:#337ab7;
+	color:white;
+}
+.disabled{
+	pointer-events:none;
+	cursor:default;
+	border:1px solid gray;
+	color:#111;
+	background-color:white;
+
+}
+.show{
+	display:inline-block;
+}
+table{
+	width: 100%;
+	margin: 0 auto;
+	cellspacing:0px;
+	border-collapse:collapse;
+}
+td{
+	border-top:1px solid black;
+	text-align:center;
+	valign:middle;
+	cellpadding:20px;
+	width:120px;
+	height:50px;
+}
+#userTable tr:nth-child(even){
+}

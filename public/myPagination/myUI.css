@@ -1,0 +1,39 @@
+/*分页pagination*/
+a{
+    text-decoration: none;
+}
+.pagination>ul{
+    list-style: none;
+}
+.pagination>ul li{
+    float:left;
+    display: none;
+}
+.pagination>ul li.show{
+    display:inline-block;
+}
+.pagination>ul li a{
+    display: block;
+    width:25px;
+    height:25px;
+    margin:0 2px;
+    line-height: 23px;
+    text-align: center;
+    box-sizing:border-box;
+    border:1px solid #019f1d;
+    border-radius:3px;
+    color:#019f1d;
+}
+.pagination>ul li a.active{
+    color:white;
+    background: #019f1d;
+}
+.pagination>ul li a.disabled{
+    pointer-events:none;
+    cursor:default;
+    color:white;
+    background: #878787;
+}
+.pagination>ul li .prev,.pagination>ul li .next{
+    width:75px;
+}

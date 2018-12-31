@@ -1,0 +1,60 @@
+#head{
+	margin:0 auto;
+	width:304px;
+	height:70px;
+	line-height:70px;
+}
+#head>div{
+	float:left;
+	font-size:50px
+}
+.login{
+	float:right;
+	text-decoration:none;
+}
+.login:link{
+	color:black;
+}
+#regdiv>div{
+	margin:10px 0 10px 350px;
+}
+
+.reqtitle {
+	float:left;
+	width:120px;
+	height:20px;
+	text-align:right;
+	font:18px 微软雅黑;
+	vertical-align: middle;
+}
+
+.logindiv{
+	margin:0 auto;
+	width:400px;
+}
+.inputArea{
+	width:250px;
+	height: 30px;
+	line-height: 24px;
+	font-size: 18px;
+	padding:0 5px;
+	box-sizing: border-box;
+	border-radius: 5px;
+	vertical-align: middle;
+}
+.genderradio{
+	width:20px;
+	height:20px;
+	vertical-align: middle;
+}
+.registerbtn{
+	display:inline-block;
+	width:250px;
+	height:30px;
+	margin-top: 50px;
+	border:1px solid black;
+	border-radius:5px;
+	background-color:yellow;
+	text-align:center;
+	line-height:30px;
+}

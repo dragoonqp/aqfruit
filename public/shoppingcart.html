@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<link rel="stylesheet" href="css/common.css" type='text/css'>
+		<link rel="stylesheet" href="css/shoppingcart.css">
+	</head>
+	<body onload='initshopcart2()'>
+		<header id="mainheader"></header>
+		<nav id="mainnav"></nav>
+		<div class="backToTop"><i class="iconfont icon-backToTop"></i>回到顶部</div>
+		<section>
+			<div class="content">
+				<div class="shoppingcontent">
+					<h4>购物车</h4>
+					<div class="cartheader">
+						<span class="selecttitle"><input type="checkbox" id="selectall"><label for="selectall">全选</label></span>
+						<span class="productnametitle">商品</span>
+						<span class="quantitytitle">数量</span>
+						<span class="unitpricetitle">单价</span>
+						<span class="subtotaltitle">金额小计</span>
+						<span class="operationtitle">操作</span>
+					</div>
+					<div class="buylist">
+						<ul>
+							<!--<li>-->
+								<!--<div class="select"><input type="checkbox"  ></div>-->
+								<!--<div class="productpic"><img src="image/fruit/fruit_03.jpg" alt=""></div>-->
+								<!--<div class="productname">进口车厘子</div>-->
+								<!--<div class="quantity">-->
+									<!--<input type="text" value="1">-->
+									<!--<div class="quantitycontrol">-->
+										<!--<a href="javascript:;" class="addbtn">+</a>-->
+										<!--<a href="javascript:;" class="reducebtn">-</a>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="unitprice">200.00</div>-->
+								<!--<div class="subtotal">290.00</div>-->
+								<!--<div class="operation"><a href="">删除</a></div>-->
+							<!--</li>-->
+							<!--<li>-->
+								<!--<div class="select"><input type="checkbox"  ></div>-->
+								<!--<div class="productpic"><img src="image/fruit/fruit_03.jpg" alt=""></div>-->
+								<!--<div class="productname">进口车厘子</div>-->
+								<!--<div class="quantity">-->
+									<!--<input type="text" value="1">-->
+									<!--<div class="quantitycontrol">-->
+										<!--<a href="javascript:;" class="addbtn">+</a>-->
+										<!--<a href="javascript:;" class="reducebtn">-</a>-->
+									<!--</div>-->
+								<!--</div>-->
+								<!--<div class="unitprice">290.00</div>-->
+								<!--<div class="subtotal">290.00</div>-->
+								<!--<div class="operation"><a href="">删除</a></div>-->
+							<!--</li>-->
+						</ul>
+
+					</div>
+					<div class="footer">
+						<div class="select">
+							<input type="checkbox" class="selectall" id="selectall2"><label for="selectall">全选</label>
+						</div>
+						<div>
+							<p>已选<span class="sumQuantity">2</span>件商品</p>
+							<p>合计(不含运费):<span class="sumprice">400</span></p>
+							<a href="" class="checkbtn">结算订单</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer id="mainfooter">
+		</footer>
+		<!--<script>-->
+			<!--var selectAll=document.getElementsByClassName("selecttitle")[0].getElementsByTagName("input")[0];-->
+			<!--var selectAll2=document.querySelector(".footer>.select>.selectall");-->
+			<!--selectAll.onclick=function(){-->
+                <!--var selects=document.querySelectorAll(".buylist>ul>li>.select>input");-->
+			    <!--for(var i=0;i<selects.length;i++){-->
+					<!--selects[i].checked=selectAll.checked;-->
+                    <!--selectAll2.checked=selectAll.checked;-->
+				<!--}-->
+			<!--}-->
+
+            <!--selectAll2.onclick=function(){-->
+                <!--var selects=document.querySelectorAll(".buylist>ul>li>.select>input");-->
+                <!--for(var i=0;i<selects.length;i++){-->
+                    <!--selects[i].checked=selectAll2.checked;-->
+                    <!--selectAll.checked=selectAll2.checked;-->
+                <!--}-->
+            <!--}-->
+
+            <!--var selects=document.querySelectorAll(".buylist>ul>li>.select>input");-->
+			<!--for(var i=0;i<selects.length;i++){-->
+			    <!--selects[i].onclick=function (){-->
+                    <!--var selectAll=document.getElementsByClassName("selecttitle")[0].getElementsByTagName("input")[0];-->
+                    <!--var selectAll2=document.querySelector(".footer>.select>.selectall");-->
+					<!--if(!this.checked) {-->
+                        <!--selectAll.checked = false;-->
+                        <!--selectAll2.checked = false;-->
+                    <!--}else{-->
+					    <!--var unchecked=document.querySelector(".buylist>ul>li>.select>input:not(:checked)")-->
+						<!--console.log(unchecked)-->
+						<!--if(unchecked!=null) {-->
+                            <!--selectAll.checked = false;-->
+                            <!--selectAll2.checked = false;-->
+                        <!--}else{-->
+					        <!--selectAll.checked=true;-->
+					        <!--selectAll2.checked=true;-->
+						<!--}-->
+					<!--}-->
+				<!--}-->
+			<!--}-->
+
+
+			<!--//数量控制-->
+            <!--var QTYcontrolbtns = document.querySelectorAll(".quantitycontrol>a")-->
+            <!--for(var i=0;i<QTYcontrolbtns.length;i++){-->
+                <!--QTYcontrolbtns[i].onclick = function(){-->
+                    <!--var quantity = this.parentElement.previousElementSibling;-->
+                    <!--if(this.innerHTML=="+"){-->
+                        <!--quantity.value++;-->
+                    <!--}else if(quantity.value>1){-->
+                        <!--quantity.value&#45;&#45;;-->
+                    <!--}-->
+
+                    <!--//小计-->
+                    <!--var thisli=this.parentElement.parentElement.parentElement;-->
+                    <!--var subtotal=thisli.getElementsByClassName("subtotal")[0];-->
+                    <!--subtotal.innerHTML=(parseFloat(thisli.getElementsByClassName("unitprice")[0].innerHTML)*quantity.value).toFixed(2);-->
+
+                    <!--//总计-->
+                    <!--var sumprice=document.getElementsByClassName("shoppingcontent")[0].getElementsByClassName("footer")[0].getElementsByClassName("sumprice")[0];-->
+                    <!--var subtotals=document.querySelectorAll(".buylist>ul>li .subtotal");-->
+                    <!--var sumpriceFloat=0;-->
+                    <!--for(var i=0;i<subtotals.length;i++){-->
+                        <!--sumpriceFloat=sumpriceFloat+parseFloat(subtotals[i].innerHTML);-->
+                    <!--}-->
+                    <!--sumprice.innerHTML=sumpriceFloat.toFixed(2);-->
+                    <!--var sumQuantity=document.getElementsByClassName("shoppingcontent")[0].getElementsByClassName("footer")[0].getElementsByClassName("sumQuantity")[0];-->
+                    <!--var quantitys=document.querySelectorAll(".buylist>ul>li>.quantity>input")-->
+                    <!--var sumQuantityInt=0;-->
+
+                    <!--for(var j=0;j<quantitys.length;j++){-->
+                        <!--sumQuantityInt+=parseInt(quantitys[j].value);-->
+					<!--}-->
+                    <!--sumQuantity.innerHTML=sumQuantityInt;-->
+                <!--}-->
+            <!--}-->
+		<!--</script>-->
+		<script src="js/jquery-1.11.3.js"></script>
+		<script src="js/header.js"></script>
+		<script src="js/nav.js"></script>
+		<script src="js/footer.js"></script>
+		<script src="js/shoppingcart.js"></script>
+	</body>
+</html>

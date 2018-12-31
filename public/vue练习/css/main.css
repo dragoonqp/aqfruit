@@ -1,0 +1,407 @@
+
+section{
+	background:rgb(250,250,250);
+}
+.banner{
+	width:100%;
+}
+.carousel{
+	width:100%;
+	height: 406px;
+	list-style:none;
+	position:relative;
+}
+.carousel li{
+	width:100%;
+	position:absolute;
+	top:0px;
+	left:0px;
+	/*display: none;*/
+	opacity: 0;
+	z-index: 0;
+	transition:all .5s linear 0s;
+}
+.carousel li.show{
+	/*display: block;*/
+	opacity: 1;
+	z-index: 10;
+}
+.d1{
+	width:100%;
+	height:342px;
+	background-image:url("../image/carousel1.png");
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+
+
+
+.normalp{
+	width:1000px;
+	display:flex;
+	justify-content:space-between;
+	flex-wrap:wrap;
+}
+.normalp ul{
+	width:1000px;
+	list-style:none;
+	display:flex;
+	justify-content:space-between;
+	flex-wrap:wrap;
+}
+.normalp li{
+	position:relative;
+	width:234px;
+	height:420px;
+	background:#f5f5f5;
+}
+.normalp>ul>li+li{
+	/*margin-left:20px;*/
+}
+.npimg{
+	width:100%;
+}
+.normalp li:hover{
+	box-shadow:0px 5px 5px 0px gray;
+}
+.normalp li:hover .title{
+	color:#1b872e;
+}
+.normalp li a img{
+	margin-top: 0px;
+	transition: all 0.1s linear;
+}
+.normalp li:hover a img{
+	margin-top: -5px;
+}
+.clock{
+	position:absolute;
+	left:11px;
+	top:0px;
+	width:61px;
+	height:64px;
+	background:#e60012;
+	z-index:9;
+	text-align:center;
+}
+.clock p{
+	font:12px 微软雅黑;
+	color:#f9d5d5;
+	margin-top:7px;
+}
+.normalp .price{
+	height:40px;
+	line-height:40px;
+}
+.normalp .title{
+	margin:9px 20px 9px;
+	width:100%;
+	height:16px;
+	line-height:16px;
+	font:normal normal normal 13px 微软雅黑;
+	color:#535353;
+	overflow:hidden;
+}
+.fdesc{
+	margin:9px 20px 9px;
+	width:100%;
+	height:13px;
+	line-height:13px;
+	font:normal normal normal 12px 宋体;
+	color:#aaaaaa;
+	overflow:hidden;
+	
+}
+.timer{
+	width:100%;
+	height:44px;
+	line-height:44px;
+	text-align:center;
+	color:#fff;
+	background-color:#e60012;
+}
+.nPrice{
+	margin:0px 9px;
+	font:normal normal bold 16px 微软雅黑;
+	color:#e60012;
+}
+.packWeight{
+}
+.normalp .oPrice{
+	margin:0px 20px;
+	color:#474747;
+	font:normal normal normal 12px 微软雅黑;
+	text-decoration:line-through;
+}
+.dealCount{
+	margin:10px 10px;
+	float:left;
+}
+.buyBtn{
+	margin:10px 10px;
+	float:right;
+	width:84px;
+	height:23px;
+	line-height:23px;
+	text-align:center;
+	color:#fff;
+	font-size:12px;
+	background-color:#e60012;
+	border-radius:2px;
+}
+.buyBtn a{
+	display:block;
+	width:100%;
+	height:100%;
+	color:white;
+}
+
+
+
+/* 优惠专区 */
+.Onsalep>ul{
+	width:1000px;
+	display:flex;
+	justify-content:space-between;
+	flex-wrap:nowrap;
+}
+.Onsalep>ul>li{
+	float:left;
+	margin-top:15px;
+	margin-bottom:13px;
+	background:#f5f5f5;
+}
+.Onsalep>ul>li:hover{
+	box-shadow:0px 5px 5px 0px gray;
+}
+.Onsalep>ul>li:hover .name{
+	color:#019f1d ;
+}
+.Onsalep>ul>li a img{
+	margin-top: 0px;
+	transition: all 0.1s linear;
+}
+.Onsalep>ul>li:hover a img{
+	margin-top: -5px;
+}
+/*
+#Onsalep>ul>li+li{
+	margin-left:29px;
+}
+#Onsalep>ul>li:nth-child(5){
+	margin-left:0px;
+}
+*/
+.Onsalep .price{
+	margin:0px 9px 8px;
+}
+.Onsalep .nPrice{
+	margin:0px 9px 8px 0px;
+	font:normal normal bold 18px 微软雅黑;
+	color:#ff9900;
+}
+.Onsalep .oPrice{
+	float:left;
+	margin:0px 10px 20px;
+	color:#474747;
+	font:normal normal normal 14px 微软雅黑;
+	text-decoration:line-through;
+}
+.Onsalebuybtn{
+	display:flex;
+	float: right;
+	width: 80px;
+	height:30px;
+	margin-right:10px;
+	justify-content: center;
+	align-items: center;
+	border-radius:3px;
+	background: #019f1d;
+	color:white;
+}
+.Onsalebuybtn:visited{
+	color:white;
+}
+.Onsalep .name{
+	margin:21px 9px 25px;
+	color:#474747;
+	font:normal normal normal 14px 微软雅黑;
+}
+.Onsalep .packWeight{
+	color:#474747;
+	font:normal normal normal 14px 微软雅黑;
+}
+.pEx{
+	width:100%;
+	margin-bottom:28px;
+}
+#d3{
+	clear:both;
+}
+
+.hr{
+	width:100%;
+	height:52px;
+	border-bottom:2px solid green;
+}
+.hr>.content{
+	height:100%;
+	display:flex;
+	justify-content:space-between;
+	align-items:flex-end;
+}
+.exName{
+	margin-bottom:19px;
+}
+.exName .cn{
+	font:18px 微软雅黑;
+	color:#019f1d;
+}
+.exName .en{
+	font:14px 微软雅黑;
+	color:#878787;
+}
+.more a{
+	display:block;
+	width:77px;
+	height:18px;
+	line-height:18px;
+	text-align:center;
+	margin-bottom:1px;
+	background:#019f1d;
+	border-radius:4px;
+	color:#fff;
+	font:16px 宋体;
+}
+
+
+.bottom{
+	height:74px;
+	background:#ffffff;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.bottom ul{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.bottom ul li{
+	float:left;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+.bottom ul li+li::before{
+	content:"/";
+	font-size:40px;
+	color:#e3dcd5;
+	font-weight:lighter;
+	margin:0 21px;
+}
+.bottom ul li span{
+	margin-left:9px;
+}
+/* 礼篮专区 */
+.figureBoxp{
+	margin-top:20px;
+}
+.figureBoxp ul{
+	display:flex;
+	justify-content:space-between;
+	flex-wrap:wrap;
+}
+.basket li:hover{
+	box-shadow:0px 5px 5px 0px gray;
+}
+.basket li .title{
+	margin:9px 0px;
+}
+.basket li{
+	height:286px;
+	border:1px solid #019f1d;
+}
+.basket li .price{
+	margin:16px 0 10px;
+	font:16px 宋体;
+}
+.basket li .nprice{
+	color:#2a971c;
+}
+
+
+.specialcarousel{
+	margin:10px 0px;
+}
+.special{
+	display: flex;
+	justify-content: space-between;
+}
+.special li{
+	border:1px solid #019f1d;
+}
+.special li a{
+	display: block;
+}
+.special li a div{
+	position:absolute;
+	width:186px;
+	height:98px;
+	top:186px;
+	background-color:rgba(255,255,255,0.6);
+	transition:top 0.2s linear 0s;
+	/*transition-property:background-color,bottom;*/
+	/*transition-duration:0.5s;*/
+	/*transition-timing-function: linear;*/
+}
+.special li:hover div{
+	top:98px;
+}
+.special li{
+	position:relative;
+	width:186px;
+	height:186px;
+	overflow: hidden;
+}
+.special li .title{
+	color:#1b872e;
+	font:14px 微软雅黑;
+	margin-top:5px;
+}
+.special li .desc{
+	color:#535353;
+	font:12px 宋体;
+	margin-top:7px;
+}
+.special li .nprice{
+	color:#fe5e13;
+	font:14px 微软雅黑;
+	margin:9px 0 11px;
+}
+
+.specialcarousel{
+	position: relative;
+}
+
+.spCar-control{
+	display: flex;
+	position:absolute;
+	top:47%;
+	width:3%;
+	height:15%;
+	background: red;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0,0,0,0.2);
+}
+.prev{
+	left:-4%;
+}
+.next{
+	right:-4%;
+}
+.spCar-control:hover{
+	background: rgba(0,0,0,0.5);
+}

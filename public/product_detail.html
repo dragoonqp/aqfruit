@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<link rel="stylesheet" href="css/common.css" type='text/css'>
+		<link rel="stylesheet" href="css/product_detail_body.css" type="text/css">
+		<link rel="stylesheet" href="css/iconcss/iconfont.css">
+		<link rel="stylesheet" href="myPagination/myUI.css">
+	</head>
+	<body onload="initialize()">
+		<header id="mainheader">
+		</header>
+
+		<nav id="mainnav">
+		</nav>
+		<div class="backToTop"><i class="iconfont icon-backToTop"></i>回到顶部</div>
+		<section>
+			<div class="content productdetail">
+				<div class="asidelink">
+					<div class="head">猜你喜欢</div>
+					<div class="linkcontainer">
+						<ul class="linklist">
+							<li>
+								<a href="">
+									<div class="likepic"><img src="image/fruit/fruit_25.jpg" alt=""></div>
+									<div>
+										<p class=liketitle>进口车厘子</p>
+										<p >原价:</p>
+										<p class=likeoldprice>28.00</p>
+										<p>促销价:</p>
+										<p class=likenewprice>20.00</p>
+									</div>
+								</a>
+							</li>
+							<li><a href="">
+								<div class="likepic"><img src="image/fruit/fruit_25.jpg" alt=""></div>
+								<div>
+									<p class=liketitle>进口车厘子</p>
+									<p >原价:</p>
+									<p class=likeoldprice>28.00</p>
+									<p>促销价:</p>
+									<p class=likenewprice>20.00</p>
+								</div>
+							</a></li>
+							<li><a href="">
+								<div class="likepic"><img src="image/fruit/fruit_25.jpg" alt=""></div>
+								<div>
+									<p class=liketitle>进口车厘子</p>
+									<p >原价:</p>
+									<p class=likeoldprice>28.00</p>
+									<p>促销价:</p>
+									<p class=likenewprice>20.00</p>
+								</div>
+							</a></li>
+							<li><a href="">
+								<div class="likepic"><img src="image/fruit/fruit_25.jpg" alt=""></div>
+								<div>
+									<p class=liketitle>进口车厘子</p>
+									<p >原价:</p>
+									<p class=likeoldprice>28.00</p>
+									<p>促销价:</p>
+									<p class=likenewprice>20.00</p>
+								</div>
+							</a></li>
+							<li><a href="">
+								<div class="likepic"><img src="image/fruit/fruit_25.jpg" alt=""></div>
+								<div>
+									<p class=liketitle>进口车厘子</p>
+									<p >原价:</p>
+									<p class=likeoldprice>28.00</p>
+									<p>促销价:</p>
+									<p class=likenewprice>20.00</p>
+								</div>
+							</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="body">
+					<p>
+						<span  class="fname">name</span><i class="iconfont icon-qrcode-1-copy"></i>
+					</p>
+					<div class="buyarea">
+						<div>
+							<div class="picplace">
+								<div class="picholder">
+								</div>
+								<div class="supermask"></div>
+								<div class="viewport"></div>
+							</div>
+							<div class="bigpicholder"></div>
+							<div class="smpic">
+								<a href="javascript:;"><i class="icon iconfont icon-leftbutton"></i></a>
+								<div class="smpicholder"></div>
+								<a href="javascript:;"><i class="icon iconfont icon-rightbutton"></i></a>
+							</div>
+						</div>
+						<div class="price">
+							<h4 class="ftitle"></h4>
+							<p><span class="pricetitle">原价 :</span><del class='oldprice'></del></p>
+							<p><span class="pricetitle">促销价 :</span><span class="newprice"></span></p>
+							<p><span class="pricetitle">包装规格 :</span><span class="packweight"></span></p>
+							<p><span class="pricetitle">赠送积分</span> <span class="bonuspoints">0</span></p>
+							<p><span class="pricetitle">:</span><span class=""></span></p>
+							<div class="buycount"><span class="pricetitle">购买数量 :</span>
+								<div class="countcontrol">
+									<input class="buycounttext" type="text" value=1 >
+									<div>
+										<a href="javascript:buycountadd(1)" class="add">
+											<div class="addicon"></div>
+										</a>
+										<a href="javascript:buycountadd(-1)" class="reduce">
+											<div class="reduceicon"></div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="buybtn">
+								<a href="javascript:;" class="addtocar">加入购物车</a>
+								<a href="javascript:;" class="buynow">立即购买</a>
+							</div>
+							<p class="service"><span class="pricetitle">产品保证:</span></p>
+						</div>
+					</div>
+					<p class="collection">
+						<a href=""> <i class="iconfont icon-shoucang"></i>收藏</a><b>|</b>
+						<a href=""> <i class="iconfont icon-fenxiang"></i>分享</a>
+					</p>
+					<div class="changeP">
+						<a href="javascript:;" class="prevproduct">上一个</a>
+						<a href="javascript:;" class="nextproduct">下一个</a>
+					</div>
+					<div class="productspec">
+						<a  class="spec active" onclick="activea(this)">产品详情</a>
+						<a  class="comment" onclick="activea(this)">产品评论</a>
+						<a  class="dealcount" onclick="activea(this )">销售记录</a>
+						<div class="specdiv">
+							<div class="spec actived">
+								<table>
+									<tr>
+										<td>水果名称:</td><td class="specname value"></td>
+										<td>水果产地:</td><td class="oCountry value"></td>
+									</tr>
+									<tr>
+										<td>是否进口:</td><td class="isImport value"></td>
+										<td>上架时间:</td><td class="shelfTime value"></td>
+									</tr>
+									<tr><td>储存方法:</td><td class="storage value">避光存储</td>
+										<td>包装规格:</td><td class="packWeight value"></td>
+									</tr>
+									<tr>
+										<td>产品分类:</td><td class="fclass value"></td>
+										<td>产品编号:</td><td class="fId value"></td>
+									</tr>
+										<td>特性:</td><td class="charactor value">无</td>
+										<td>其他:</td><td class="other value">无</td>
+									</tr>
+								</table>
+
+							</div>
+							<div id="comment">
+								<div class="commentsummary">
+									<div class="left"></div>
+									<div class="right"></div>
+								</div>
+								<ul class="commentlist">
+									<li>
+										<div class="cmtmain">
+											<div class="cmtcontent">大家是否会啊沙发</div>
+											<p class="cmtTime">2018-12-29</p>
+										</div>
+										<div class="score">
+											<i class="iconfont icon-star"></i>
+											<i class="iconfont icon-star"></i>
+											<i class="iconfont icon-star"></i>
+											<i class="iconfont icon-star"></i>
+											<i class="iconfont icon-star"></i>
+										</div>
+										<div class="cmtuser">
+											<div class="avatar"></div>
+											<div class="uname">名字</div>
+										</div>
+									</li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+								<div class="commentpage">
+									<!--<ul>-->
+										<!--<li>上一页</li>-->
+										<!--<li>1</li>-->
+										<!--<li>下一页</li>-->
+									<!--</ul>-->
+								</div>
+								<div class="submitcomment">
+									<div>
+										<span>验证码:</span>
+										<input type="text">
+										<img src="" alt="">
+									</div>
+										<div class="star">
+										<span>评星:</span>
+										<i class="iconfont icon-star"></i>
+										<i class="iconfont icon-star"></i>
+										<i class="iconfont icon-star"></i>
+										<i class="iconfont icon-star"></i>
+										<i class="iconfont icon-star"></i>
+									</div>
+									<div>
+										<span>评论:</span>
+										<textarea name="" id="" cols="90" rows="4"></textarea>
+									</div>
+									<div></div>
+									<a class="submitbtn">提交评论</a>
+								</div>
+							</div>
+							<div id="dealcount">
+								<table>
+									<thead>
+										<tr>
+											<th>买家</th>
+											<th>数量</th>
+											<th>成交时间</th>
+										</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<td>匿名用户</td>
+										<td>3</td>
+										<td>2018-12-01</td>
+									</tr>
+									<tr>
+										<td>匿名用户</td>
+										<td>3</td>
+										<td>2018-12-01</td>
+									</tr>
+									<tr>
+										<td>匿名用户</td>
+										<td>3</td>
+										<td>2018-12-01</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+			
+		</section>
+
+		<footer id="mainfooter">
+		</footer>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script>
+			$(".submitcomment>.star").on("click","i",function(){
+			    $(this).css("color","orange").prevAll("i").css("color","orange");
+			    $(this).nextAll().css("color","");
+			})
+
+
+			//有bug
+			$(".body>.changeP").on("click","a",function(){
+			    var thisA=$(this)
+                $.ajax({
+					url:"/product/prouductcount",
+					type:"get",
+					dataType:"json",
+					success:function(result){
+
+					    var count=result[0].Pcount;
+                        var fid=parseInt(location.search.split("=")[1]);
+                        if(thisA.html()=="上一个" && fid>1){
+                            location.assign("/product_detail.html?fid="+(fid-1))
+                        }else if(thisA.html()=="下一个" && fid<count){
+                            location.assign("/product_detail.html?fid="+(fid+1))
+                        }
+					}
+				})
+
+			})
+
+
+
+
+            //定义选项卡切换样式函数。
+			var activebtns=$(".productspec").children("a")
+			for(var i=0;i<activebtns.length;i++){
+				(function(i){
+				    activebtns[i].onclick=function(){
+						this.parentElement.getElementsByClassName("active")[0].classList.remove("active");
+						this.classList.add("active");
+						var divs=document.getElementsByClassName("specdiv")[0].children;
+						divs[i].parentElement.getElementsByClassName("actived")[0].classList.remove("actived");
+						divs[i].classList.add("actived");
+					}
+                })(i);
+			}
+
+			//定义选项卡切换样式函数。
+			// function activea(obj){
+             //    var aFaEle = document.getElementsByClassName("productspec")[0];
+             //    var aList = aFaEle.getElementsByTagName("a");
+             //    for(var i=0;i<aList.length;i++){
+             //        aList[i].classList.remove("active");
+             //    }
+             //    obj.classList.add("active");
+			// 	var activeClass=obj.getAttribute("class")
+			// 	var actdiv=document.getElementsByClassName("specdiv")[0].getElementsByTagName("div")
+			// 	for(var j=0;j<actdiv.length;j++){
+             //        actdiv[j].classList.remove("actived");
+             //        if(activeClass.indexOf(actdiv[j].getAttribute("id"))>-1){
+			// 	        actdiv[j].classList.add("actived");
+			// 		}
+			// 	}
+			// }
+
+			var smpicholder=document.getElementsByClassName("smpicholder")[0];
+            smpicholder.onmouseover=function (e){
+                var src=e.target.src;
+                var picholder=document.getElementsByClassName("picholder")[0];
+                var bigpicholder=document.getElementsByClassName("bigpicholder")[0];
+                bigpicholder.children[0].src=src;
+                picholder.children[0].src=src;
+			}
+
+
+			var picplace=document.getElementsByClassName("picplace")[0];
+			var supermask=document.getElementsByClassName("supermask")[0];
+            supermask.onmouseover = function(e){//鼠标移动到box上显示大图片和选框
+                var viewport=document.getElementsByClassName("viewport")[0];
+                viewport.style.display = "block";
+            }
+
+            supermask.onmousemove=function(e){
+                var viewport=document.getElementsByClassName("viewport")[0];
+                var bigpicholder=document.getElementsByClassName("bigpicholder")[0];
+                var bigpic=bigpicholder.getElementsByTagName("img")[0];
+                bigpicholder.style.display="block";
+			    viewport.style.display="block";
+			    viewport.style.top=(e.offsetY-viewport.offsetHeight/2)+"px";
+                viewport.style.left=(e.offsetX-viewport.offsetWidth/2)+"px";
+                if(viewport.style.top<=0+"px"){
+                    viewport.style.top=0+"px";
+                }
+                else if((e.offsetY-viewport.offsetHeight/2)>(supermask.offsetHeight-viewport.offsetHeight)){
+                    viewport.style.top=(supermask.offsetHeight-viewport.offsetHeight)+"px";
+				}
+                if(viewport.style.left<=0+"px"){
+                    viewport.style.left=0+"px";
+                }
+                else if((e.offsetX-viewport.offsetWidth/2)>=(supermask.offsetWidth-viewport.offsetWidth)){
+                    viewport.style.left=(supermask.offsetWidth-viewport.offsetWidth)+"px";
+				}
+				bigpic.style.top=-bigpicholder.offsetHeight/viewport.offsetHeight*parseFloat(viewport.style.top)+"px";
+                bigpic.style.left=-bigpicholder.offsetWidth/viewport.offsetWidth*parseFloat(viewport.style.left)+"px";
+
+			}
+            supermask.onmouseout=function(e){
+                var viewport=document.getElementsByClassName("viewport")[0];
+                var bigpicholder=document.getElementsByClassName("bigpicholder")[0];
+                bigpicholder.style.display="none";
+                viewport.style.display="none";
+			}
+
+			function getdetail(){
+                var urlParams = new URLSearchParams(location.search);
+                var fid=urlParams.get('fid');
+                var xhr= new XMLHttpRequest();
+                if(fid){
+                    xhr.onreadystatechange=function(){
+                        if(xhr.readyState==4& xhr.status==200){
+                            var result=JSON.parse(xhr.responseText);
+                            //产品购买区
+                            var fname=document.getElementsByClassName("fname")[0];
+                            var ftitle=document.getElementsByClassName("ftitle")[0];
+                            var picholder=document.getElementsByClassName("picholder")[0];
+                            var bigpicholder=document.getElementsByClassName("bigpicholder")[0];
+                            var oldprice=document.getElementsByClassName("oldprice")[0];
+                            var newprice=document.getElementsByClassName("newprice")[0];
+                            var packweight=document.getElementsByClassName("packweight")[0];
+                            var bonuspoints=document.getElementsByClassName("bonuspoints")[0];
+                            var smpicholder=document.getElementsByClassName("smpicholder")[0];
+
+                            fname.innerHTML=result[0].pName;
+                            ftitle.innerHTML=result[0].title+'<br>'+result[0].fdesc;
+                            picholder.innerHTML='<img src="'+result[1].spic+'">';
+                            bigpicholder.innerHTML='<img src="'+result[1].spic+'">';
+                            oldprice.innerHTML='￥'+result[0].oUnitPrice.toFixed(2)+'/箱';
+                            newprice.innerHTML='￥'+result[0].nUnitPrice.toFixed(2)+'/箱';
+                            packweight.innerHTML=result[0].packWeight+'斤/箱';
+                            var li="";
+							for(var i=1;i<result.length;i++){
+                                li+='<li><img src="'+result[i].spic+'"</li>';
+							}
+                            smpicholder.innerHTML="<ul>"+li+"</ul>";
+
+							//小图片移动
+                            var moved=0;
+                            if($(".smpicholder>ul>li").length<=4){
+                                $(".buyarea .smpic>a:first").addClass("disable");
+                            }
+                            $(".buyarea .smpic>a:last").addClass("disable");
+                            $(".buyarea .smpic>a:first").click(function(){
+                                moved++
+                                $(".smpicholder>ul").css("margin-left",-70*moved);
+                                $(".buyarea .smpic>a:last").removeClass("disable");
+                                console.log($(".smpicholder>ul").css("margin-left"))
+                                if($(".smpicholder>ul").css("margin-left")==0+"px"){
+                                    $(".buyarea .smpic>a:first").addClass("disable");
+                                }
+                            })
+                            $(".buyarea .smpic>a:last").click(function(){
+                                moved--
+                                $(".smpicholder>ul").css("margin-left",-70*moved);
+                                $(".buyarea .smpic>a:first").removeClass("disable");
+
+                                if($(".smpicholder>ul").css("margin-left")==-70*($(".smpicholder>ul>li").length-4)+"px"){
+                                    $(".buyarea .smpic>a:last").addClass("disable");
+                                }
+                            })
+
+
+							//产品详情区
+                            var specname=document.getElementsByClassName("specname")[0];
+                            var oCountry=document.getElementsByClassName("oCountry")[0];
+                            var isImport=document.getElementsByClassName("isImport")[0];
+                            var shelfTime=document.getElementsByClassName("shelfTime")[0];
+                            var packWeight=document.getElementsByClassName("packWeight")[0];
+                            var fclass=document.getElementsByClassName("fclass")[0];
+                            var fId=document.getElementsByClassName("fId")[0];
+
+
+                            specname.innerHTML=result[0].pName;
+                            oCountry.innerHTML=result[0].oCountry;
+                            isImport.innerHTML= (result[0].oCountry=="中国"?'国产':'进口');
+                            shelfTime.innerHTML='';
+                            packWeight.innerHTML=result[0].packWeight+'斤/箱';
+                            fclass.innerHTML=result[0].fruitClass;
+                            fId.innerHTML=result[0].fId;
+                        }
+                    }
+                    xhr.open('get','/product/product_detail?fId='+fid,true)
+                    xhr.send(null);
+                }
+			}
+			var reduceBtn = document.getElementsByClassName("reduce")[0];
+
+
+			function buycountadd(num){
+			    var buycountvalue = document.getElementsByClassName("buycounttext")[0];
+			    buycountvalue.value = Number(buycountvalue.value)+num;
+			    if(buycountvalue.value<=1){
+					reduceBtn.classList.add("disable");
+				}else{
+                    reduceBtn.classList.remove("disable");
+				}
+			}
+
+			function initialize(){
+				getdetail();
+				reduceBtn.classList.add("disable");
+			}
+		</script>
+		<script src="js/header.js"></script>
+		<script src="js/nav.js"></script>
+		<script src="js/footer.js"></script>
+		<script src="myPagination/myPagination.js"></script>
+		<script src="js/productDetail.js"></script>
+	</body>
+</html>

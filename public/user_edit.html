@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <!--<meta http-equiv='Cache-control' content='max-age=0'> -->
+  <title>Document</title>
+  <link rel="stylesheet"  type="text/css" href="../css/userEditPage.css" >
+ </head>
+ <body onload='loadInfo()'>
+	 <div id='head'>
+			<div>用户编辑</div>
+	 </div>
+	 <div id='updatediv'>
+		 <p><div class='reqtitle'>用户编号:</div>
+			<input type="text" class='inputArea' id='uid' readonly>
+		 </p>
+		 <p><div class='reqtitle'>用户账号:</div>
+			<input type="text" class='inputArea' id='uname' onfocus='uname_focus()' onblur='uname_blur()' maxlength='9' readonly>
+			<span id='input_uname'></span>
+		 </p>
+		 <!-- <p><div class='reqtitle'>用户密码:</div>
+				<input type="password" class='inputArea' id='upwd' onfocus='upwd_focus()' onblur='upwd_blur()' maxlength='12'>
+				<span id='input_upwd'></span>
+		 </p> -->
+		 <!-- <p><div class='reqtitle'>密码验证:</div>
+				<input type="password" class='inputArea' id='rupwd' onblur='rupwd_blur()'>
+				<span id='input_rupwd'></span>
+		 </p> -->
+		 <p><div class='reqtitle'>电子邮箱:</div>
+			<input type="email" class='inputArea' id='email'>
+		 </p>
+		 <p><div class='reqtitle'>联系电话:</div>
+			<input type="text" class='inputArea' id='phone'>
+		 </p>
+		 <p><div class='reqtitle'>真实姓名:</div>
+			<input type="text" class='inputArea' id='userName'>	
+		 </p>
+		 <p><div class='reqtitle' >性别:</div>
+			<input type="radio" class='genderradio' name='gender' id='m' value=1><label for="m">男</label>
+			<input type="radio" class='genderradio' name='gender' id='fm' value=0><label for="fm">女</label>
+		 </p>
+		 <p>
+			<div class='reqtitle' >头像:</div>
+			<input type="file" name='$avater' id='$avater'>
+		 </p>
+		 <!-- <p><div class='reqtitle'>安全问题:</div>
+				<select name="safeQue" id="safeQue" class='inputArea' >
+					<option value="safeQue1">你的第一份工作是什么？</option>
+					<option value="safeQue2">你最喜欢的运动是什么？</option>
+					<option value="safeQue3">你的高中老师叫什么？</option>
+					<option value="safeQue4">你爸爸的名字叫什么？</option>
+				</select>
+		 </p> -->
+		 <!-- <p><div class='reqtitle'>安全问题答案:</div>
+				<input type="text" class='inputArea' id='safeAns'>
+		 </p> -->
+		 <p>
+			 <div class='reqtitle'></div>
+			 <div onclick='update()' style='display:inline-block;width:200px;height:30px; border:1px solid black;background-color:yellow;text-align:center;line-height:30px;'>提交信息</div>
+		 </p>
+	</div>
+	 <script>
+		var urlParams = new URLSearchParams(location.search);
+		var uidp = urlParams.get('uid');
+		function loadInfo(){
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange=function (){
+				if(xhr.readyState==4 && xhr.status==200){
+					var result = JSON.parse(xhr.responseText);
+					console.log(result);
+					uid.value = uidp;
+					uname.value = result[0].uname;
+					email.value = result[0].email;
+					phone.value = result[0].phone;
+					userName.value = result[0].userName;
+					if(result[0].gender==1){
+						m.checked=true;
+					}else if(result.gender==0){
+						fm.checked=true;
+					}else{
+						m.checked=false;
+						fm.checked=false;
+					}
+					
+				}
+			}
+			xhr.open('get','/user_admin/updateload?uidp='+uidp,true);
+			xhr.send(null);
+		}
+		
+		function update(){
+			var gender;
+			if(m.checked==true){
+				gender=1;
+			}else if(fm.checked==true){
+				gender=0;
+			}else{
+				gender=2;
+			}
+			console.log(gender);
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4 && xhr.status==200){
+					var result=JSON.parse(xhr.responseText);
+				}
+			}
+			xhr.open('post','/user_admin/update',true);
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			var formdata='uid='+uidp+'&email='+email.value+'&phone='+phone.value+'&userName='+userName.value+'&gender='+gender+'&$avater='+$avater.value;
+			xhr.send(formdata);
+		}
+	 </script>
+ </body>
+</html>

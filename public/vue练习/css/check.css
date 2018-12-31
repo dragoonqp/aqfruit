@@ -1,0 +1,16 @@
+section .content>div{
+    border-bottom:1px dashed #cccccc;
+}
+section .content>div>div{
+    margin: 10px 5px 10px 35px;
+    background: #cccccc;
+    width: 95%;
+    height:80px;
+}
+input{
+    width: 99%;
+    height: 30px;
+    line-height: 24px;
+    font:16px 微软雅黑;
+    text-indent: 5px;
+}

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title></title>
+		<link rel="stylesheet" href="css/common.css" type='text/css'>
+		<link rel="stylesheet" href="css/membercenter.css">
+	</head>
+	<body onload=''>
+	<header id="mainheader">
+		</header>
+		<nav id="mainnav">
+		</nav>
+		<div class="backToTop"><i class="iconfont icon-backToTop"></i>回到顶部</div>
+		<section>
+			<div class="content">
+				<aside>
+					<div class="mcenterdivider">
+						<h3>会员中心</h3>
+						<ul class="mcenterlist">
+							<li><a class="active" href="javascript:;" data-target="myinfo">我的资料</a></li>
+							<li><a href="javascript:;" data-target="myorders">我的订单</a></li>
+							<li><a href="javascript:;" data-target="rec_info">收货人信息</a></li>
+							<li><a href="javascript:;" data-target="mybonuspoints">我的积分</a></li>
+							<li><a href="javascript:;" data-target="mycollection">我的收藏</a></li>
+							<li><a href="javascript:;" data-target="discountCoupon">我的优惠券</a></li>
+						</ul>
+					</div>
+				</aside>
+				<div class="body">
+					<div class="myinfo active" id="myinfo">
+						<input type="hidden" class="useId">
+						<h3>我的资料</h3>
+						<div class="myinfoheader">
+							<div class="avator"></div>
+							<div class="accountinfo">
+								<p><span class="userName">龙秋平</span>(<span class="memberdegree">普通会员</span>)</p>
+								<p>当前积分:<span class="memberbonus">1</span></p>
+								<div>资料完整度:</div>
+							</div>
+						</div>
+						<div class="myinfobody ">
+							<ul>
+								<li>
+									<div>账户名 :</div>
+									<p>
+										<span> </span>
+										<input type="text" class="account" readonly>
+									</p>
+								</li>
+								<li>
+									<div>姓名 :</div>
+									<p>
+										<span>*</span>
+										<input type="text" class="userName">
+									</p>
+								</li>
+								<li>
+									<div>手机 :</div>
+									<p>
+										<span>*</span>
+										<input type="text" class="phone" readonly>
+									</p>
+								</li>
+								<li>
+									<div>邮箱 :</div>
+									<p>
+										<span>*</span>
+										<input type="text" class="email" >
+									</p>
+								</li>
+								<li>
+									<div>性别 :</div>
+									<p>
+										<span> </span>
+										<input type="radio" class="gender" name="gender" id="m" value="1"><label for="m">男</label>
+										<input type="radio" class="gender" name="gender" id="fm" value="0"><label for="fm">女</label>
+										<input type="radio" class="gender" name="gender" id="none" value="2"><label for="none">保密</label>
+									</p>
+								</li>
+								<li>
+									<div>登录密码 :</div>
+									<p class="changebtn">
+										<span> </span>
+										<a href="javascript:;">[修改]</a>
+									</p>
+								</li>
+
+								<li class="password">
+										<div>旧密码 :</div>
+										<p>
+											<span></span>
+											<input type="text" class="email" >
+										</p>
+								</li>
+								<li class="password">
+										<div>新密码 :</div>
+										<p>
+											<span></span>
+											<input type="text" class="email" >
+										</p>
+								</li>
+								<li class="password">
+										<div>确认新密码 :</div>
+										<p>
+											<span></span>
+											<input type="text" class="email" >
+										</p>
+								</li>
+								<li>
+									<div></div>
+									<p>
+										<span></span>
+										<a href="" class="savebtn">保 存</a>
+									</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="myorders" id="myorders">
+						<ul>
+							<li><a href="javascript:;" class="active">我的订单</a></li>
+							<li><a href="javascript:;">待付款</a></li>
+							<li><a href="javascript:;">待发货</a></li>
+							<li><a href="javascript:;">已发货</a></li>
+							<li><a href="javascript:;">交易完成</a></li>
+						</ul>
+						<div class="orderArea" id="orderArea">
+							<div class="myorderslist active">
+								<div class="orderinfotitle">
+									<span>产品名称</span>
+									<span>单价/数量</span>
+									<span>总价</span>
+									<span>状态</span>
+									<span>操作</span>
+								</div>
+								<ul>
+									<li>
+										<p class="cardheader"><span>订单编号:</span>201812040101<span></span><span>订单时间:</span><span>20181204</span></p>
+										<div class="cardbody">
+											<div><img src="image/fruit/fruit_03.jpg" alt=""><span>进口樱桃</span></div>
+											<div>￥19.60 x 1</div>
+											<div>￥19.60</div>
+											<div>待付款</div>
+											<div><i></i><i></i></div>
+										</div>
+									</li>
+									<li>
+										<p class="cardheader"><span>订单编号:</span>201812040101<span></span><span>订单时间:</span><span>20181204</span></p>
+										<div class="cardbody">
+											<div><img src="image/fruit/fruit_03.jpg" alt=""><span>进口樱桃</span></div>
+											<div>￥19.60 x 1</div>
+											<div>￥19.60</div>
+											<div>待付款</div>
+											<div><i></i><i></i></div>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="unpaied">
+								<div class="orderinfotitle">
+									<span>产品名称</span>
+									<span>单价/数量</span>
+									<span>总价</span>
+									<span>状态</span>
+									<span>操作</span>
+								</div>
+							</div>
+							<div class="unshipments">
+								<div class="orderinfotitle">
+									<span>产品名称</span>
+									<span>单价/数量</span>
+									<span>总价</span>
+									<span>状态</span>
+									<span>操作</span>
+								</div>
+							</div>
+							<div class="shipment">
+								<div class="orderinfotitle">
+									<span>产品名称</span>
+									<span>单价/数量</span>
+									<span>总价</span>
+									<span>状态</span>
+									<span>操作</span>
+								</div>
+							</div>
+							<div class="dealdone">
+								<div class="orderinfotitle">
+									<span>产品名称</span>
+									<span>单价/数量</span>
+									<span>总价</span>
+									<span>状态</span>
+									<span>操作</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="rec_info" id="rec_info">
+						<h3>收货人信息</h3>
+						<div class="rec_list">
+							<div>
+								<div></div>
+								<p><i></i>龙秋平</p>
+								<p><i></i>18620445753</p>
+								<p><i></i>地址...</p>
+							</div>
+							<div>
+								<div></div>
+								<p><i></i>龙秋平</p>
+								<p><i></i>18620445753</p>
+								<p><i></i>地址...</p>
+							</div>
+						</div>
+					</div>
+					<div class="mybonuspoints" id="mybonuspoints">
+						<h3>我的积分</h3>
+					</div>
+					<div class="mycollection" id="mycollection">
+						<h3>我的收藏</h3>
+					</div>
+					<div class="discountCoupon" id="discountCoupon">
+						<h3>我的优惠券</h3>
+					</div>
+				</div>
+			</div>
+		</section>
+		<footer id="mainfooter">
+		</footer>
+		<script src="js/jquery-1.11.3.js"></script>
+		<script>
+			var changebtn=document.getElementsByClassName("changebtn")[0].getElementsByTagName("a")[0];
+            changebtn.onclick=function (){
+                var actlis=document.getElementsByClassName("password");
+                if(changebtn.innerHTML=="[修改]"){
+                    changebtn.innerHTML="[取消修改]";
+                    for(var i=0;i<actlis.length;i++){
+                        actlis[i].classList.add("active");
+					}
+				}else{
+                    changebtn.innerHTML="[修改]";
+                    for(var i=0;i<actlis.length;i++){
+                        actlis[i].classList.remove("active");
+                    }
+				}
+			}
+
+			var mcenterlist=document.getElementsByClassName("mcenterlist")[0];
+            var navlis=mcenterlist.getElementsByTagName("a");
+            for(var i=0;i<navlis.length;i++){
+                (function (i){
+					navlis[i].onclick=function (){
+					    //var target=this.getAttribute("data-target");
+						var infobodys=document.getElementsByClassName("body")[0].children;
+						this.parentElement.parentElement.getElementsByClassName("active")[0].classList.remove("active");
+						this.classList.add("active");
+						for(var j=0;j<infobodys.length;j++){
+                            infobodys[j].classList.remove("active");
+						}
+						infobodys[i].classList.add("active");
+					};
+                })(i);
+			}
+
+
+			$(".myorders>ul").on("click","a",function(){
+			    var i = $(".myorders>ul>li>a").index(this);
+			    $(this).addClass("active").parent().siblings().children(":first-child").removeClass("active");
+			    $("#orderArea>div:eq("+i+")").addClass("active").siblings().removeClass("active");
+			})
+		</script>
+		<script src="js/header.js"></script>
+		<script src="js/footer.js"></script>
+		<script src="js/nav.js"></script>
+	</body>
+</html>
