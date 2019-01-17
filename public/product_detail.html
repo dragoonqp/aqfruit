@@ -165,26 +165,26 @@
 									<div class="right"></div>
 								</div>
 								<ul class="commentlist">
-									<li>
-										<div class="cmtmain">
-											<div class="cmtcontent">大家是否会啊沙发</div>
-											<p class="cmtTime">2018-12-29</p>
-										</div>
-										<div class="score">
-											<i class="iconfont icon-star"></i>
-											<i class="iconfont icon-star"></i>
-											<i class="iconfont icon-star"></i>
-											<i class="iconfont icon-star"></i>
-											<i class="iconfont icon-star"></i>
-										</div>
-										<div class="cmtuser">
-											<div class="avatar"></div>
-											<div class="uname">名字</div>
-										</div>
-									</li>
-									<li></li>
-									<li></li>
-									<li></li>
+									<!--<li>-->
+										<!--<div class="cmtmain">-->
+											<!--<div class="cmtcontent">大家是否会啊沙发</div>-->
+											<!--<p class="cmtTime">2018-12-29</p>-->
+										<!--</div>-->
+										<!--<div class="score">-->
+											<!--<i class="iconfont icon-star"></i>-->
+											<!--<i class="iconfont icon-star"></i>-->
+											<!--<i class="iconfont icon-star"></i>-->
+											<!--<i class="iconfont icon-star"></i>-->
+											<!--<i class="iconfont icon-star"></i>-->
+										<!--</div>-->
+										<!--<div class="cmtuser">-->
+											<!--<div class="avatar"></div>-->
+											<!--<div class="uname">名字</div>-->
+										<!--</div>-->
+									<!--</li>-->
+									<!--<li></li>-->
+									<!--<li></li>-->
+									<!--<li></li>-->
 								</ul>
 								<div class="commentpage">
 									<!--<ul>-->
@@ -299,31 +299,18 @@
                 })(i);
 			}
 
-			//定义选项卡切换样式函数。
-			// function activea(obj){
-             //    var aFaEle = document.getElementsByClassName("productspec")[0];
-             //    var aList = aFaEle.getElementsByTagName("a");
-             //    for(var i=0;i<aList.length;i++){
-             //        aList[i].classList.remove("active");
-             //    }
-             //    obj.classList.add("active");
-			// 	var activeClass=obj.getAttribute("class")
-			// 	var actdiv=document.getElementsByClassName("specdiv")[0].getElementsByTagName("div")
-			// 	for(var j=0;j<actdiv.length;j++){
-             //        actdiv[j].classList.remove("actived");
-             //        if(activeClass.indexOf(actdiv[j].getAttribute("id"))>-1){
-			// 	        actdiv[j].classList.add("actived");
-			// 		}
-			// 	}
-			// }
 
 			var smpicholder=document.getElementsByClassName("smpicholder")[0];
             smpicholder.onmouseover=function (e){
                 var src=e.target.src;
+                if(src){
                 var picholder=document.getElementsByClassName("picholder")[0];
                 var bigpicholder=document.getElementsByClassName("bigpicholder")[0];
                 bigpicholder.children[0].src=src;
                 picholder.children[0].src=src;
+                }else{
+                    return
+				}
 			}
 
 

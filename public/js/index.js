@@ -151,7 +151,7 @@ function getlist(){
                 function timer(obj){
                     //var that=this;
                     var clock=setInterval(function(){
-                        var end=new Date("2018/12/30 18:00:00");
+                        var end=new Date("2019/12/30 18:00:00");
                         var now=new Date();
                         var s=parseInt((end-now)/1000);
                         var d=parseInt(s/3600/24);

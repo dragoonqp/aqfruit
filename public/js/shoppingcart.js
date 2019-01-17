@@ -116,7 +116,6 @@ function countchange2(){
             data:{uid,fid,num},
             datatype:"json",
             success:function(result){
-                console.log(result)
 
                 updateshopcart2(result);
                 initshopcart();
@@ -125,7 +124,7 @@ function countchange2(){
     })
 }
 
-function countEdit(){
+function countEdit2(){
     $(".buylist").on("input propertychange",".quantity input",function(){
         var uid=1;
         var fid=$(this).parent().parent().children("input")[0].value;
@@ -146,11 +145,14 @@ function countEdit(){
 
                 }
             })
+        }else{
+            return
         }
     })
 }
 
 function initshopcart2(){
+
     var uid=1;
     $.ajax({
         url:"/shopcart/init",
@@ -162,8 +164,8 @@ function initshopcart2(){
             $("#selectall,#selectall2").prop("checked",true);
             countchange2();
             changecheck();
-            deleteItem();
-            countEdit();
+            deleteItem2();
+            countEdit2();
         }
     })
 }
@@ -174,7 +176,7 @@ function checked2(){
     })
 }
 
-function deleteItem(){
+function deleteItem2(){
     $(".buylist").on("click",".operation a",function(){
         var uid=1;
         var fid=$(this).parent().parent().children("input")[0].value;

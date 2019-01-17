@@ -27,9 +27,6 @@ $(".sort").on("click","a",function(){
 })
 
 
-
-
-
 // var xhr = new XMLHttpRequest();
 // xhr.onreadystatechange=function (){
 // 	if(xhr.readyState==4 && xhr.status==200){
@@ -140,12 +137,12 @@ function changePage(num){
                 var ptitle=result[i].title;
                 var poldprice=result[i].oUnitPrice;
                 var pnewprice=result[i].nUnitPrice;
-                lis+='<li><div><input class="fid" type="hidden" value="'+fid+'"><a href="product_detail.html?fid='+fid+'" ><img src="'+imgscr+'" alt=""></a><p class="title">'+ptitle+'</p><p class="oldprice"><span>原价:</span>￥'+poldprice+'</p><p class="newprice"><span>现价:</span>￥'+pnewprice+'</p><div class="buybtn"><a href="" class="addtocartbtn">加入购物车</a><a href="product_detail.html?fid='+fid+'" class="buynowbtn">立即购买</a></div></div></li>'
+                lis+='<li style="margin-left:'+((i+1)%5==1?"0px":"")+';"><div><input class="fid" type="hidden" value="'+fid+'"><a href="product_detail.html?fid='+fid+'" ><img src="'+imgscr+'" alt=""></a><p class="title">'+ptitle+'</p><p class="oldprice"><span>原价:</span>￥'+poldprice+'</p><p class="newprice"><span>现价:</span>￥'+pnewprice+'</p><div class="buybtn"><a href="" class="addtocartbtn">加入购物车</a><a href="product_detail.html?fid='+fid+'" class="buynowbtn">立即购买</a></div></div></li>'
             }
             pListdiv.innerHTML='<ul>'+lis+'</ul>'
         }
     }
-    xhr.open('get','/product/productlist?classname='+pclassname+'&sortby='+sort+'&pageNo='+num,true);
+    xhr.open('get','/product/productlist?classname='+pclassname+'&sortby='+sort+'&pageNo='+num+"&QPP="+pageCount,true);
     xhr.send(null);
     //激活编号为num的li。
     act(num);
@@ -193,12 +190,26 @@ function insertLi(num){
     fun(num);
 }
 
+function tabicon(){
+    var urlParams= new URLSearchParams(location.search);
+    var sortby=urlParams.get("sortby");
+    if(sortby!=null) {
+        var sort = sortby.split("_")[0];
+        var by = sortby.split("_")[1];
+        $(".sort i").removeClass();
+        $(".sort a[data-target="+sort+"]").children("i").addClass("icon iconfont icon-"+by);
+    }else{
+        return
+    }
+}
+
 //定义函数改变每页显示的数量
 function initialize(){
     //获取地址栏的查询字符串并连接后台获取数据
     var urlParams = new URLSearchParams(location.search);
     var pclassname = urlParams.get('classname');
     var sort =urlParams.get('sortby');
+    console.log(sort)
     var pageno=1;
     var pageCt;
     var pageCount=15;
@@ -214,20 +225,21 @@ function initialize(){
                 var ptitle=result[i].title;
                 var poldprice=result[i].oUnitPrice;
                 var pnewprice=result[i].nUnitPrice;
-                lis+='<li><div><input class="fid" type="hidden" value="'+fid+'"><a href="product_detail.html?fid='+fid+'" ><img src="'+imgscr+'" alt=""></a><p class="title">'+ptitle+'</p><p class="oldprice"><span>原价:</span>￥'+poldprice+'</p><p class="newprice"><span>现价:</span>￥'+pnewprice+'</p><div class="buybtn"><a href="javascript:;" class="addtocartbtn">加入购物车</a><a href="product_detail.html?fid='+fid+'" class="buynowbtn">立即购买</a></div></div></li>'
+                lis+='<li style="margin-left:'+((i+1)%5==1?"0px":"")+';"><div><input class="fid" type="hidden" value="'+fid+'"><a href="product_detail.html?fid='+fid+'" ><img src="'+imgscr+'" alt=""></a><p class="title">'+ptitle+'</p><p class="oldprice"><span>原价:</span>￥'+poldprice+'</p><p class="newprice"><span>现价:</span>￥'+pnewprice+'</p><div class="buybtn"><a href="javascript:;" class="addtocartbtn">加入购物车</a><a href="product_detail.html?fid='+fid+'" class="buynowbtn">立即购买</a></div></div></li>'
             }
             pListdiv.innerHTML='<ul>'+lis+'</ul>'
-            pageCt=Math.ceil(result[result.length-1].tCount/15);
+            pageCt=Math.ceil(result[result.length-1].tCount/pageCount);
             insertLi(pageCt);
             act(1);
             showact();
             disbtn();
             //bindaddtoshoppoingcart();
             //cartcontrol();
-            addtoshopcart()
+            addtoshopcart();
+            tabicon()
         }
     }
-    xhr.open('get','/product/productlist?classname='+pclassname+'&sortby='+sort+'&pageNo='+pageno,true);
+    xhr.open('get','/product/productlist?classname='+pclassname+'&sortby='+sort+'&pageNo='+pageno+"&QPP="+pageCount,true);
     xhr.send(null);
 }
 initialize()

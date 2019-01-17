@@ -17,7 +17,7 @@
 			<div class="content">
 				<div class="logindiv">
 					<p class="accountId">
-						<input type="text" id='uname' placeholder="账号">
+						<input type="text" id='uname' placeholder="账号" autocomplete="off">
 					</p>
 					<p class="password">
 						<input type="password" id='upwd' placeholder="密码">
@@ -43,14 +43,21 @@
 			function login(){
                 var uname=$("#uname").val();
                 var upwd=$("#upwd").val();
-			    if(uname!="" && upwd!=""){
+                var unamereg=/^\w{3,16}$/;
+                var upwdreg=/^\w{3,14}$/;
+			    if(unamereg.test(uname) && upwdreg.test(upwd)){
 			        var xhr = $.ajax({
 						url:"/user/login",
 						type:"post",
 						dataType:"json",
 						data:`uname=${uname}&upwd=${upwd}`,
 						success:function (res){
-						    console.log(res);
+						    if(res.code==201) {
+                            	alert("登录成功");
+						        location.assign("/index.html");
+                            }else if(res.code==401){
+						        alert("账号或密码不正确");
+							}
 						}
 					})
 				}else{

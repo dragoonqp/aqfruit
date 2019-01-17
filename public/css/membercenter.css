@@ -310,7 +310,6 @@ aside{
     right:15px;
     width: 150px;
     height: 20px;
-    background: yellow;
     transition:all 0.2s linear;
 }
 .rec_info .rec_list>div:hover div{
@@ -324,4 +323,94 @@ aside{
 }
 .rec_info .rec_list>div>p+p{
     border-top: 1px dashed #cccccc;
+}
+.rec_list .addrec{
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+}
+.addrec p:first-child{
+    font-size: 5rem;
+    border:0 !important;
+}
+.mask{
+    display:none;
+    position:fixed;
+    background: rgba(0,0,0,0.6);
+    width:100%;
+    height:100%;
+    top: 0px;
+    left: 0px;
+    z-index: 20;
+}
+.mask.show,.adddetail.show{
+    display: block;
+}
+.adddetail{
+    display:none;
+    position:absolute;
+    margin: 0 auto;
+    left:20%;
+    top:0rem;
+    width: 70%;
+    height:100%;
+    z-index: 21;
+    background: white;
+    border-radius:0.5rem;
+}
+.adddetail>p.head{
+    height:4rem;
+    border-bottom:1px solid #aaaaaa;
+    padding:1rem;
+    line-height: 2rem;
+    box-sizing:border-box;
+    display:flex;
+    justify-content:space-between;
+}
+.adddetail>div>p{
+    width:100%;
+    height:3rem;
+    margin: 1rem auto;
+}
+.adddetail>div>p{
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+}
+.adddetail>div>p>span{
+    width: 15%;
+    text-align:right;
+}
+.adddetail>div>p>i{
+    text-align: center;
+    width:5%;
+}
+.adddetail>div>p>input{
+    width:60%;
+    height:3rem;
+    border:1px solid #aaaaaa;
+    padding:0 1rem;
+}
+.adddetail>p.foot{
+    display: flex;
+    justify-content:center;
+    align-items:center;
+}
+.adddetail>p.foot>a{
+    line-height: 2.5rem;
+    text-align:center;
+    width:7rem;
+    height:2.5rem;
+    margin:0 1rem;
+    border-radius:0.2rem;
+}
+.adddetail>p.foot>a:first-child{
+    color:white;
+    border:1px solid #1b872e;
+    background: #1b872e;
+}
+.adddetail>p.foot>a:last-child{
+    color:#aaaaaa;
+    border: 1px solid #aaaaaa;
 }

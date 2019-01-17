@@ -403,7 +403,14 @@ section{
 .commentsummary div+div{
 	border-left:1px solid gray;
 }
-
+.commentlist .nocmt{
+	height: 100px;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	border-bottom:1px solid #aaaaaa;
+}
 .commentlist>li{
 	border-bottom:1px solid gray;
 	height:100px;

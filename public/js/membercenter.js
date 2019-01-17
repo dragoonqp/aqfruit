@@ -1,0 +1,10 @@
+$(function(){
+    $(".rec_list>.addrec").click(function(){
+        $(".adddetail").fadeIn().addClass("show");
+        $(".mask").addClass("show")
+    })
+    $(".head>.close").click(function(){
+        $(".adddetail").fadeOut().removeClass("show");
+        $(".mask").removeClass("show")
+    })
+})

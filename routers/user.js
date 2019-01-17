@@ -68,22 +68,25 @@ router.get('/registerCheck',(req,res)=>{
 
 router.post('/login',(req,res)=>{
 	loginData = req.body;
-	var $uname = loginData.uname;
-	var $upwd = loginData.upwd;
+	var uname = loginData.uname;
+	var upwd = loginData.upwd;
 
-	for(key in loginData){
-		if(!loginData[key]){
-			res.send(`${key} required`);
+	if(!uname){
+			res.send({code:301,msg:"uname required"});
 			return;
-		}
 	}
-	pool.query('SELECT * From aq_user WHERE uname=? AND upwd=?',[$uname,$upwd],(err,result)=>{
+	if(!upwd){
+			res.send({code:302,msg:"upwd required"});
+			return;
+	}
+	pool.query('SELECT * From aq_user WHERE uname=? AND upwd=?',[uname,upwd],(err,result)=>{
 		if(result.length>0){
-			var loginRes;
-			//更改是否在线为是。
-			pool.query('UPDATE aq_user SET isOnline=1 WHERE uname=?',[$uname],(err,result)=>{
-				loginRes = result.affectedRows;
-			});
+			// var loginRes;
+			// //更改是否在线为是。
+			// pool.query('UPDATE aq_user SET isOnline=1 WHERE uname=?',[$uname],(err,result)=>{
+			// 	loginRes = result.affectedRows;
+			// });
+			req.session.uid=result[0].uid
 			//响应登陆结果
 			res.send({code:201,msg:'login success'});
 		}else{
@@ -92,4 +95,81 @@ router.post('/login',(req,res)=>{
 	});
 });
 
+router.get("/linkToMCenter",(req,res)=>{
+	var uid=req.session.uid;
+	console.log(111)
+	if(!uid){
+		res.send({code:301,msg:"请先登陆"});
+		return
+	}
+	pool.query("SELECT uname FROM aq_user WHERE uid=?",[uid],(err,result)=>{
+		if(err){throw err}
+		if(result.length>0){
+			res.send({code:201,msg:"跳转成功",data:result})
+		}else{
+			res.send({code:302,msg:"请先登陆"})
+		}
+	})
+})
+router.get("/getInfo",(req,res)=>{
+	var uid=req.session.uid;
+	if(!uid){
+		res.send({code:301,msg:"请先登陆"});
+		return
+	}
+	pool.query("SELECT uname,email,phone,userName,gender,avatar FROM aq_user WHERE uid=?",[uid],(err,result)=>{
+		if(err){throw err}
+		if(result.length>0){
+			res.send({code:201,data:result})
+		}
+	})
+})
+
+router.get("/logout",(req,res)=>{
+	req.session.uid=null;
+	res.send({code:501,msg:"logout success"})
+})
+	
+router.post("/update",(req,res)=>{
+	var uid=req.session.uid;
+	var email=req.body.email;
+	var phone=req.body.phone;
+	var userName=req.body.userName;
+	var gender=req.body.gender;
+	if(!uid){
+		res.send({code:301,msg:"请先登陆"});
+		return
+	}
+	pool.query("UPDATE aq_user SET email=?,phone=?,userName=?,gender=? WHERE uid=?",[email,phone,userName,gender,uid],(err,result)=>{
+		if(err){throw err}
+		if(result.affectedRows>0){
+			res.send({code:201,msg:"update success"})
+		}
+	})
+})
+
+router.post("/changepwd",(req,res)=>{
+	var uid=req.session.uid;
+	var opwd=req.body.opwd;
+	var npwd=req.body.npwd;
+	if(!uid){
+		res.send({code:301,msg:"请先登陆"});
+		return
+	}
+	pool.query("SELECT * FROM aq_user WHERE uid=? AND upwd=?",[uid,opwd],(err,result)=>{
+		if(err){throw err}
+		console.log(result)
+		if(result.length>0){
+			pool.query("UPDATE aq_user SET upwd=? WHERE uid=? AND upwd=?",[npwd,uid,opwd],(err,result2)=>{
+				if(err){throw err}
+				if(result2.affectedRows>0){
+					res.send({code:201,msg:"update success"})
+				}
+			})
+		}else{
+			res.send({code:401,msg:"opwd required"})
+		}
+	})
+	
+})
 module.exports=router;

@@ -57,19 +57,25 @@ router.get('/Onsalelist',(req,res)=>{
 router.get("/productlist",(req,res)=>{
 	var $classname=req.query.classname;
 	var $pageNo=req.query.pageNo;
-    if(req.query.sortby=="null"){
+	var QPP=parseInt(req.query.QPP);
+	console.log(typeof req.query.sortby,req.query.sortby)
+    if(req.query.sortby=="null" || req.query.sortby==undefined || req.query.sortby=="undefined"){
         var $sortBy="aq_fruit.fId";
         var $sortMethod="ASC";
 	}else{
         var $sortBy=req.query.sortby.split("_")[0];
         var $sortMethod=req.query.sortby.split("_")[1];
 	}
-	if($classname!="null") {
+	if($classname==undefined || $classname=="undefined"){
+		$classname="all"
+	}
+	if($classname!="null" || $classname!=undefined) {
+		
         if (!!$classname && $classname != "all") {
         	//console.log($sortBy)
             //console.log($sortMethod)
             //LEFT JOIN aq_fpic ON aq_fruit.picsId=aq_fpic.pid
-            pool.query("SELECT *,GROUP_CONCAT(aq_fpic.pid),GROUP_CONCAT(aq_fpic.spic),GROUP_CONCAT(aq_fpic.mpic),GROUP_CONCAT(aq_fpic.lpic) FROM aq_fruit LEFT JOIN aq_fpic ON aq_fruit.fId=aq_fpic.fid  WHERE  fruitClass=? GROUP BY aq_fruit.fId ORDER BY "+$sortBy +" "+ $sortMethod+" LIMIT ?,?", [$classname,15 * ($pageNo - 1), 15], (err, result1) => {
+            pool.query("SELECT *,GROUP_CONCAT(aq_fpic.pid),GROUP_CONCAT(aq_fpic.spic),GROUP_CONCAT(aq_fpic.mpic),GROUP_CONCAT(aq_fpic.lpic) FROM aq_fruit LEFT JOIN aq_fpic ON aq_fruit.fId=aq_fpic.fid  WHERE  fruitClass=? GROUP BY aq_fruit.fId ORDER BY "+$sortBy +" "+ $sortMethod+" LIMIT ?,?", [$classname,15 * ($pageNo - 1), QPP], (err, result1) => {
                 if (err) {
                     throw err;
                 }
@@ -88,7 +94,7 @@ router.get("/productlist",(req,res)=>{
         } else if (!!$classname && $classname == "all") {
         	//console.log($sortBy)
             //console.log($sortMethod)
-            pool.query("SELECT *,GROUP_CONCAT(aq_fpic.pid),GROUP_CONCAT(aq_fpic.spic),GROUP_CONCAT(aq_fpic.mpic),GROUP_CONCAT(aq_fpic.lpic) FROM aq_fruit LEFT JOIN aq_fpic ON aq_fruit.fId=aq_fpic.fid GROUP BY aq_fruit.fId ORDER BY "+$sortBy+" "+$sortMethod+" LIMIT ?,?", [15 * ($pageNo - 1), 15], (err, result1) => {
+            pool.query("SELECT *,GROUP_CONCAT(aq_fpic.pid),GROUP_CONCAT(aq_fpic.spic),GROUP_CONCAT(aq_fpic.mpic),GROUP_CONCAT(aq_fpic.lpic) FROM aq_fruit LEFT JOIN aq_fpic ON aq_fruit.fId=aq_fpic.fid GROUP BY aq_fruit.fId ORDER BY "+$sortBy+" "+$sortMethod+" LIMIT ?,?", [15 * ($pageNo - 1), QPP], (err, result1) => {
                 if (err) {
                     throw err;
                 }
@@ -153,7 +159,7 @@ router.get("/getComments",(req,res)=>{
 router.get("/getCommentsQTY",(req,res)=>{
     var fid=parseInt(req.query.fid);
     if(!fid){
-        res.send({code:301,msg:"uid required"})
+        res.send({code:301,msg:"fid required"})
         return;
     }
     pool.query("SELECT COUNT(cid) AS CommentsQTY FROM aq_productComment WHERE fid=?",[fid],(err,result)=>{
@@ -165,11 +171,11 @@ router.get("/getCommentsQTY",(req,res)=>{
 })
 
 router.post("/addComments",(req,res)=>{
-	var uid=req.body.uid;
+	var uid=req.session.uid;
 	var fid=req.body.fid;
 	var score=parseInt(req.body.score);
 	var cmtContent=req.body.cmtContent;
-	if(!fid){
+	if(!uid){
 		res.send({code:301,msg:"uid required"})
 	}
 	pool.query("INSERT INTO aq_productComment VALUES(null,?,now(),?,?,?);",[cmtContent,fid,uid,score],(err,result)=>{

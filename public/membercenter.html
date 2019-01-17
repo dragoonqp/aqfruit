@@ -22,9 +22,8 @@
 							<li><a class="active" href="javascript:;" data-target="myinfo">我的资料</a></li>
 							<li><a href="javascript:;" data-target="myorders">我的订单</a></li>
 							<li><a href="javascript:;" data-target="rec_info">收货人信息</a></li>
-							<li><a href="javascript:;" data-target="mybonuspoints">我的积分</a></li>
+							<li><a href="javascript:;" data-target="mybonuspoints">我的账户</a></li>
 							<li><a href="javascript:;" data-target="mycollection">我的收藏</a></li>
-							<li><a href="javascript:;" data-target="discountCoupon">我的优惠券</a></li>
 						</ul>
 					</div>
 				</aside>
@@ -211,22 +210,40 @@
 								<p><i></i>18620445753</p>
 								<p><i></i>地址...</p>
 							</div>
+							<div class="addrec">
+								<p>+</p>
+								<p>添加新地址</p>
+							</div>
 						</div>
 					</div>
 					<div class="mybonuspoints" id="mybonuspoints">
-						<h3>我的积分</h3>
+						<h3>我的账户</h3>
 					</div>
 					<div class="mycollection" id="mycollection">
 						<h3>我的收藏</h3>
-					</div>
-					<div class="discountCoupon" id="discountCoupon">
-						<h3>我的优惠券</h3>
 					</div>
 				</div>
 			</div>
 		</section>
 		<footer id="mainfooter">
 		</footer>
+        <div class="mask"></div>
+        <div class="adddetail">
+            <p class="head"><span>收货人信息</span><span class="close">X</span></p>
+            <div>
+                <p><span>姓名</span><i></i><input type="text"></p>
+                <p><span>手机</span><i>*</i><input type="text"></p>
+                <p><span>邮箱</span><i></i><input type="text"></p>
+                <p><span>电话</span><i></i><input type="text"></p>
+                <p><span>邮政编码</span><i></i><input type="text"></p>
+                <p><span>所在地区</span><i>*</i><input type="text"></p>
+                <p><span>详细地址</span><i>*</i><input type="text" placeholder="街道地址"></p>
+            </div>
+            <p class="foot">
+                <a href="javascript:;">确认</a>
+                <a href="javascript:;">取消</a>
+            </p>
+        </div>
 		<script src="js/jquery-1.11.3.js"></script>
 		<script>
 			var changebtn=document.getElementsByClassName("changebtn")[0].getElementsByTagName("a")[0];
@@ -272,5 +289,6 @@
 		<script src="js/header.js"></script>
 		<script src="js/footer.js"></script>
 		<script src="js/nav.js"></script>
+		<script src="js/membercenter.js"></script>
 	</body>
 </html>

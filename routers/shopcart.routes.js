@@ -4,13 +4,13 @@ const router=express.Router();
 
 router.post("/add",(req,res)=>{
     var fid=parseInt(req.body.fid);
-    var uid=req.body.uid;
+    var uid=req.session.uid
     if(!fid){
-        res.send({code:301,msg:'fid required'});
+        res.send({code:302,msg:'fid required'});
         return;
     }
     if(!uid){
-        res.send({code:302,msg:'uid required'});
+        res.send({code:301,msg:'uid required'});
         return;
     }
     pool.query("SELECT * FROM aq_shoppingcart_item WHERE userId=?",[uid],(err,result)=>{
@@ -45,12 +45,12 @@ router.post("/add",(req,res)=>{
 })
 
 router.post("/countchange",(req,res)=>{
-    var uid=req.body.uid;
+    var uid=req.session.uid
     var fid=req.body.fid;
     var num=parseInt(req.body.num);
     var quantity=parseInt(req.body.quantity);
     if(!uid){
-        res.send({code:401,msg:"uid required"});
+        res.send({code:301,msg:"uid required"});
         return
     }
     if(num>0) {//如果num大于0，则执行数据库操作对该用户的购物车商品+1
@@ -113,28 +113,26 @@ router.post("/countchange",(req,res)=>{
 })
 
 router.post("/init",(req,res)=>{
-    var uid=req.body.uid;
+    var uid=req.session.uid;
     if(!uid){
         res.send({code:301,msg:"uid required"})
         return;
     }
     pool.query("SELECT *,(SELECT nUnitPrice FROM aq_fruit WHERE aq_fruit.fid=aq_shoppingcart_item.productId) AS nUnitPrice,(SELECT title FROM aq_fruit WHERE aq_fruit.fid=aq_shoppingcart_item.productId) AS title,(SELECT spic FROM aq_fpic WHERE aq_fpic.fid=aq_shoppingcart_item.productId LIMIT 1) AS spic FROM aq_shoppingcart_item WHERE userId=?",[uid],(err,result)=>{
         if(err){throw err}
-        if(result.length>0){
             res.send(result)
-        }
     })
 })
 
 router.post("/deleteItem",(req,res)=>{
-    var uid=req.body.uid;
+    var uid=req.session.uid;
     var fid=req.body.fid;
     if(!uid){
-        res.send({code:401,msg:"uid required"})
+        res.send({code:301,msg:"uid required"})
         return;
     }
     if(!fid){
-        res.send({code:301,msg:"fid required"})
+        res.send({code:401,msg:"fid required"})
         return;
     }
     pool.query("DELETE FROM aq_shoppingcart_item WHERE userId=? and productId=?",[uid,fid],(err,result)=>{
@@ -146,7 +144,7 @@ router.post("/deleteItem",(req,res)=>{
 })
 
 router.post("/clear",(req,res)=>{
-    var uid=req.body.uid;
+    var uid=req.session.uid;
     if(!uid){
         res.send({code:301,msg:"uid required"});
         return;
@@ -160,7 +158,7 @@ router.post("/clear",(req,res)=>{
 })
 
 router.post("/detailadd",(req,res)=>{
-    var uid=req.body.uid;
+    var uid=req.session.uid;
     var fid=req.body.fid;
     var qty=parseInt(req.body.qty);
     if(!uid){
@@ -188,7 +186,7 @@ router.post("/detailadd",(req,res)=>{
                 if(result.affectedRows>0){
                     pool.query("SELECT *,(SELECT nUnitPrice FROM aq_fruit WHERE aq_fruit.fid=aq_shoppingcart_item.productId) AS nUnitPrice,(SELECT title FROM aq_fruit WHERE aq_fruit.fid=aq_shoppingcart_item.productId) AS title,(SELECT spic FROM aq_fpic WHERE aq_fpic.fid=aq_shoppingcart_item.productId LIMIT 1) AS spic FROM aq_shoppingcart_item WHERE userId=?",[uid],(err,result)=>{
                         if(err){throw err}
-                        res.send(result);
+                        res.send({code:201,data:result});
                     })
                 }
             })
@@ -198,7 +196,7 @@ router.post("/detailadd",(req,res)=>{
                 if(result.affectedRows>0){
                     pool.query("SELECT *,(SELECT nUnitPrice FROM aq_fruit WHERE aq_fruit.fid=aq_shoppingcart_item.productId) AS nUnitPrice,(SELECT title FROM aq_fruit WHERE aq_fruit.fid=aq_shoppingcart_item.productId) AS title,(SELECT spic FROM aq_fpic WHERE aq_fpic.fid=aq_shoppingcart_item.productId LIMIT 1) AS spic FROM aq_shoppingcart_item WHERE userId=?",[uid],(err,result)=>{
                         if(err){throw err}
-                        res.send(result);
+                        res.send({code:201,data:result});
                     })
                 }
             })

@@ -123,8 +123,16 @@ h4.logo{
 	right:0px;
 	bottom:0px;
 	margin-bottom:22px;
-	background-color:pink;
+	display: flex;
+	align-items: center;
 }
+#delivery select{
+	height:24px;
+}
+#delivery select.city{
+	display: none;
+}
+
 #searchbar{
 	width:315px;
 	height:60px;

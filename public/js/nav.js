@@ -126,7 +126,7 @@ function updateshopcart(result){
     $(".shopcarlist>ul").html("");
     for(var i=0;i<result.length;i++){
         var totalprice=result[i].nUnitPrice*result[i].count;
-        lis+="<li><input type='checkbox' class='shopcartcheckbox' checked><input type='hidden' value="+result[i].productId+"><div class='pic'><img src="+result[i].spic +"></div><span class='title'>"+result[i].title+"</span><div class='quantity'><input type='text' class='shopcarbuyQTY' value="+result[i].count+"><div class='shopcarbuyQTYcontrol'><a href='javascript:;' class='shopcarAdd QTYcontrol'>+</a><a href='javascript:;' class='shopcarreduce QTYcontrol'>-</a></div></div><span class='unitprice'>"+result[i].nUnitPrice.toFixed(2)+"</span><span class='totalprice'>"+totalprice.toFixed(2)+"</span><a href='javascript:;' class='delete'>删除</a></li>"
+        lis+="<li><input type='checkbox' class='shopcartcheckbox' checked><input type='hidden' class='fid' value="+result[i].productId+"><div class='pic'><img src="+result[i].spic +"></div><span class='title'>"+result[i].title+"</span><div class='quantity'><input type='text' class='shopcarbuyQTY' value="+result[i].count+"><div class='shopcarbuyQTYcontrol'><a href='javascript:;' class='shopcarAdd QTYcontrol'>+</a><a href='javascript:;' class='shopcarreduce QTYcontrol'>-</a></div></div><span class='unitprice'>"+result[i].nUnitPrice.toFixed(2)+"</span><span class='totalprice'>"+totalprice.toFixed(2)+"</span><a href='javascript:;' class='delete'>删除</a></li>"
     }
     $(".shopcarlist>ul").html(lis);
     checked();
@@ -222,6 +222,51 @@ function clearShopcart(){
     })
 }
 
+function countEdit(){
+    $(".shopcarlist").on("input propertychange","input.shopcarbuyQTY",function(){
+        var uid=1;
+        var fid=$(this).parent().parent().children("input.fid")[0].value;
+        var reg=/^\d+$/;
+        var quantity=parseInt($(this).val());
+        if(reg.test(quantity)){
+            $.ajax({
+                url:"/shopcart/countchange",
+                type:"post",
+                data:{uid,fid,quantity},
+                datatype:"json",
+                success:function(result){
+                    console.log(result)
+                    if(result.code==201){
+                        $(this)[0].value=quantity;
+                    }
+
+                }
+            })
+        }else{
+            return
+        }
+    })
+}
+
+function deleteItem(){
+    $(".shopcarlist").on("click","a.delete",function(){
+        var uid=1;
+        var fid=$(this).parent().children("input.fid")[0].value;
+        $.ajax({
+            url:"/shopcart/deleteItem",
+            type:"post",
+            data:{uid,fid},
+            datatype:"json",
+            success:function(result){
+                if(result.code==201) {
+                    $(".shopcarlist>ul>li>input.fid[value=" + fid + "]").parent().remove()
+                }
+                getTotalPrice()
+            }
+        })
+    })
+}
+
 $(function(){
     $.ajax({
         url:"../nav.html",
@@ -234,6 +279,8 @@ $(function(){
             checked();
             clearShopcart();
             shownone();
+            countEdit();
+            deleteItem()
 
             //购物车
             // var shopcarlist= document.getElementsByClassName("shopcarlist")[0];
